@@ -405,6 +405,9 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 /// Set token for Pusher service in order to be able to receive remote push notifications
 /// Optional - alternateBundleID, set custom bundle ID for Pusher with for the token
 + (void)setPusherTokenWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID;
+/// Set token for VoIP Pusher service in order to be able to receive remote calls
+/// Optional - alternateBundleID, set custom bundle ID for Pusher with for the token
++ (void)setPusherVoipTokenWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID;
 /// Register pusher with push notification token received from APNS (Apple).
 /// Before registering the Pusher, we make sure have the following params:
 /// <ul>
@@ -512,6 +515,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMessagingS
 /// <notificationDelegate> is the implementer of LPMessagingSDKNotificationDelegate.
 /// <alternateBundleID> is a value for using in order to let the Pusher service to identify the host app with this bundle identifier.
 - (void)registerPushNotificationsWithToken:(NSData * _Nonnull)token notificationDelegate:(id <LPMessagingSDKNotificationDelegate> _Nullable)notificationDelegate alternateBundleID:(NSString * _Nullable)alternateBundleID;
+- (void)registerVoipPushNotificationsWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID;
 /// This method created ConversationParamProtocol of Brand query type.
 - (id <ConversationParamProtocol> _Nonnull)getConversationBrandQuery:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// This method created ConversationParamProtocol of Brand and Skill query type.

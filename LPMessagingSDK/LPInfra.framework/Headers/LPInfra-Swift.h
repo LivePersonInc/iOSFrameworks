@@ -912,9 +912,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isNetworkReacha
 + (UIImage * _Nullable)getImageByURL:(NSString * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 /// Send local notification (from type: UILocalNotification) in iOS notification center
 + (void)sendLocalNotification:(NSString * _Nonnull)text uid:(NSString * _Nullable)uid;
-/// Set token for Pusher service in order to be able to receive remote push notifications
-/// Optional - alternateBundleID, set custom bundle ID for Pusher with for the token
-+ (void)setPusherTokenWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID;
 + (NSString * _Nonnull)getAppIdentifier SWIFT_WARN_UNUSED_RESULT;
 /// Register pusher with push notification token received from APNS (Apple).
 /// Before registering the Pusher, we make sure have the following params:
@@ -1169,7 +1166,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPSDKManager
 ///
 /// \param completion a boolean in a completion block. The SDK is applicable if the current version is greater or euqal to the fetched value
 ///
-+ (void)isVersionApplicableWithBrandID:(NSString * _Nonnull)brandID completion:(void (^ _Nonnull)(BOOL))completion;
++ (void)isVersionApplicableWithBrandID:(NSString * _Nonnull)brandID configurationKey:(NSString * _Nullable)configurationKey completion:(void (^ _Nonnull)(BOOL))completion;
 /// Determines if a feature is enabled for account
 /// <ol>
 ///   <li>
