@@ -832,9 +832,10 @@ SWIFT_CLASS("_TtC7LPInfra20LPConversationEntity")
 
 SWIFT_CLASS("_TtC7LPInfra24LPConversationViewParams")
 @interface LPConversationViewParams : NSObject
-@property (nonatomic, strong) id <ConversationParamProtocol> _Null_unspecified conversationQuery;
+@property (nonatomic, strong) id <ConversationParamProtocol> _Nonnull conversationQuery;
 @property (nonatomic, strong) UIViewController * _Nullable containerViewController;
 @property (nonatomic) BOOL isViewOnly;
+- (nonnull instancetype)initWithConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery containerViewController:(UIViewController * _Nullable)containerViewController isViewOnly:(BOOL)isViewOnly OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
