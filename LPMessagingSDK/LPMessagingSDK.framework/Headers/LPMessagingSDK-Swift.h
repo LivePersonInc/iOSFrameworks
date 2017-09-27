@@ -202,6 +202,7 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK39ConversationViewControllerAgentDelegate_")
 @class LPUser;
 @protocol LPMessagingSDKNotificationDelegate;
 @protocol ConversationParamProtocol;
+@class LPAuthenticationParams;
 @class LPBrandEntity;
 @class LPConversationEntity;
 @class LPMessageEntity;
@@ -212,11 +213,10 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK39ConversationViewControllerAgentDelegate_")
 @class RequestSwiftURL;
 @class Ring;
 @class LPFormEntity;
-@class LPCustomItemEntity;
+@class LPLinkPreviewEntity;
 @class LPWebSocket;
 @class LPUserEntity;
 
-/// An public API for all messaging capabilities
 SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 @interface LPMessagingAPI : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -224,49 +224,52 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///
 /// returns:
 /// Bool if initialization is successful
-+ (BOOL)initializeAPI SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.initializeAPI()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)initializeAPI SWIFT_WARN_UNUSED_RESULT;
 /// Set LPMessagingAPIDelegate implementor
-+ (void)setDelegateWithDelegate:(id <LPMessagingAPIDelegate> _Nonnull)delegate SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.setDelegate(delegate:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)setDelegateWithDelegate:(id <LPMessagingAPIDelegate> _Nonnull)delegate;
 /// Remove LPMessagingAPIDelegate implementor
-+ (void)removeDelegate SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.removeDelegate()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)removeDelegate;
 /// This method sets user details for the consumer of a brand.
 /// The user object is in Type of LPUser which includes all the user details.
 /// Additional paramaters:
 /// <brandID> is the brand of the related user.
 /// If the SDK is not connected, it’ll save the last user for each brand, until connected.
-+ (void)setUserProfileWithDetails:(LPUser * _Nonnull)lpuser brandID:(NSString * _Nonnull)brandID SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.setUserProfileWithDetails(_:brandID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)setUserProfileWithDetails:(LPUser * _Nonnull)lpuser brandID:(NSString * _Nonnull)brandID;
 /// This method registers the host app in the SDK Pusher service in order to be able to receive push notification in messaging.
 /// Optional paramaters:
 /// <notificationDelegate> is the implementer of LPMessagingSDKNotificationDelegate.
 /// <alternateBundleID> is a value for using in order to let the Pusher service to identify the host app with this bundle identifier.
-+ (void)registerPushNotificationsWithToken:(NSData * _Nonnull)token notificationDelegate:(id <LPMessagingSDKNotificationDelegate> _Nullable)notificationDelegate alternateBundleID:(NSString * _Nullable)alternateBundleID SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.registerPushNotifications(token:notificationDelegate:alternateBundleID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)registerPushNotificationsWithToken:(NSData * _Nonnull)token notificationDelegate:(id <LPMessagingSDKNotificationDelegate> _Nullable)notificationDelegate alternateBundleID:(NSString * _Nullable)alternateBundleID;
 /// This method created ConversationParamProtocol of Brand query type.
-+ (id <ConversationParamProtocol> _Nonnull)getConversationBrandQuery:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getConversationBrandQuery(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-/// This method created ConversationParamProtocol of Brand and Skill query type.
-+ (id <ConversationParamProtocol> _Nonnull)getConversationBrandAndSkillQuery:(NSString * _Nonnull)brandID skillID:(NSString * _Nonnull)skillID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getConversationBrandAndSkillQuery(_:skillID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (id <ConversationParamProtocol> _Nonnull)getConversationBrandQuery:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// This method created ConversationParamProtocol of Consumer and Skill query type.
-+ (id <ConversationParamProtocol> _Nonnull)getConversationConsumerQuery:(NSString * _Nullable)consumerID brandID:(NSString * _Nonnull)brandID agentToken:(NSString * _Nonnull)agentToken SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getConversationConsumerQuery(_:brandID:agentToken:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (id <ConversationParamProtocol> _Nonnull)getConversationConsumerQuery:(NSString * _Nullable)consumerID brandID:(NSString * _Nonnull)brandID agentToken:(NSString * _Nonnull)agentToken SWIFT_WARN_UNUSED_RESULT;
 /// This method checks for an active(Open/Created) conversation according to conversation query.
 /// Return value:
 /// True - there is an active conversation.
 /// False - there is no active conversation.
-+ (BOOL)checkActiveConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.checkActiveConversation(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)checkActiveConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 /// This method checks if the active conversation of a conversation query marked as Urgent.
 /// Return value:
 /// True - conversation is marked as Urgent.
 /// False - conversation is not marked as Urgent.
-+ (BOOL)isUrgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.isUrgent(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)isUrgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 /// This method marks the active conversation of a conversation query as Urgent.
-+ (void)changeUrgentState:(id <ConversationParamProtocol> _Nonnull)conversationQuery isUrgent:(BOOL)isUrgent SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.changeUrgentState(_:isUrgent:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)changeUrgentState:(id <ConversationParamProtocol> _Nonnull)conversationQuery isUrgent:(BOOL)isUrgent;
 /// This method ends the active conversation if exists.
-+ (void)resolveConversationForConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.resolveConversationForConversationQuery(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)resolveConversationForConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery;
 /// This methods returns the assigned agent of the active or the latest closed conversation, if exists.
-+ (LPUser * _Nullable)getAssignedAgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getAssignedAgent(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPUser * _Nullable)getAssignedAgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 /// This method determines wether a brandID is Ready.
 /// Ready means that the brand is connected and conversation can be proccessed.
-+ (BOOL)isBrandReady:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.isBrandReady(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)isBrandReady:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// This method returns the SDK version.
-+ (NSString * _Nullable)getSDKVersion SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getSDKVersion()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (NSString * _Nullable)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
+/// Get inActive time in second from the user last touch on screen
+///
+/// returns:
+/// TimeInterval (Double)
++ (NSTimeInterval)getInactiveUserInteractionTimeInterval:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 /// Perform connect to socket for conversationQuery
 /// @param:
 /// <ul>
@@ -274,7 +277,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///     optional ready completion which will be called after the socket is connected
 ///   </li>
 /// </ul>
-+ (void)connectToSocket:(id <ConversationParamProtocol> _Nonnull)conversationQuery readyCompletion:(void (^ _Nullable)(void))readyCompletion SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.connectToSocket(_:readyCompletion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)connectToSocket:(id <ConversationParamProtocol> _Nonnull)conversationQuery readyCompletion:(void (^ _Nullable)(void))readyCompletion;
 /// Perform reconnect to socket for conversationQuery:
 /// <ul>
 ///   <li>
@@ -288,57 +291,57 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///     optional ready completion which will be called after the socket is connected
 ///   </li>
 ///   <li>
-///     optional authenticationCode to use an an authenticated users.
+///     optional an LPAuthenticationParams object to determine the properties of an authenticated connection. LPAuthenticationParams supports Code Flow login or Implicit Flow login.
 ///   </li>
 /// </ul>
-+ (void)reconnectToSocket:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationCode:(NSString * _Nullable)authenticationCode readyCompletion:(void (^ _Nullable)(void))readyCompletion SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.reconnectToSocket(_:authenticationCode:readyCompletion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)reconnectToSocket:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationParams:(LPAuthenticationParams * _Nonnull)authenticationParams readyCompletion:(void (^ _Nullable)(void))readyCompletion;
 /// Perform disconnect from socket for conversationQuery.
 /// You can choose to disconnect the socket aftet delay of predefined time
 /// \param conversationQuery conversationQuery where to socket belongs to
 ///
 /// \param shouldUseDelay determines whether to keep socket open for delay
 ///
-+ (void)disconnectSocket:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.disconnectSocket(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)disconnectSocket:(id <ConversationParamProtocol> _Nonnull)conversationQuery;
 /// Clear history of all closed conversations and their messages from the database.
 /// This method is allowed only if there is no active/open conversation.
-+ (BOOL)clearHistory:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.clearHistory(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)clearHistory:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 /// Delete all conversations and their messages from the database, which older than X months.
 /// The number of months allowed is defined in LPConfig with attribute: deleteClosedConversationOlderThanMonths
-+ (void)deleteOldConversations SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.deleteOldConversations()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)deleteOldConversations;
 /// Create new conversation instance
-+ (LPConversationEntity * _Nonnull)createConversation:(LPBrandEntity * _Nonnull)brand SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.createConversation(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPConversationEntity * _Nonnull)createConversation:(LPBrandEntity * _Nonnull)brand SWIFT_WARN_UNUSED_RESULT;
 /// Send message from a Message instance related to an owner conversation
-+ (void)sendMessageInConversation:(LPConversationEntity * _Nonnull)conversation message:(LPMessageEntity * _Nonnull)message completion:(void (^ _Nonnull)(LPMessageEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.sendMessage(inConversation:message:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)sendMessageInConversation:(LPConversationEntity * _Nonnull)conversation message:(LPMessageEntity * _Nonnull)message completion:(void (^ _Nonnull)(LPMessageEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Send message from a text string related to an owner conversation
 /// This method will create new Message instance in the database.
 /// Messages might be masked depending on regex and masking from LPConfig
-+ (void)sendMessageInConversation:(LPConversationEntity * _Nonnull)conversation text:(NSString * _Nonnull)text completion:(void (^ _Nonnull)(LPMessageEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.sendMessage(inConversation:text:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)sendMessageInConversation:(LPConversationEntity * _Nonnull)conversation text:(NSString * _Nonnull)text completion:(void (^ _Nonnull)(LPMessageEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Resolve/End a conversation from the user side
-+ (void)resolveConversation:(LPConversationEntity * _Nonnull)conversation SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.resolveConversation(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)resolveConversation:(LPConversationEntity * _Nonnull)conversation;
 /// Request to change the conversation urgency status to on/off
-+ (BOOL)requestUrgentResponse:(LPConversationEntity * _Nonnull)conversation urgent:(BOOL)urgent SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.requestUrgentResponse(_:urgent:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)requestUrgentResponse:(LPConversationEntity * _Nonnull)conversation urgent:(BOOL)urgent SWIFT_WARN_UNUSED_RESULT;
 /// Retreive new messages from server for an owner converation
-+ (void)retrieveNewMessagesForConversation:(LPConversationEntity * _Nonnull)conversation completion:(void (^ _Nullable)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.retrieveNewMessagesForConversation(_:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)retrieveNewMessagesForConversation:(LPConversationEntity * _Nonnull)conversation completion:(void (^ _Nullable)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /// Send CSAT to the server for an owner conversation (submit or skipped)
 /// CSAT model is based on: rate of the csat, resolutionConfirmation toggle and wether csat is skipped or not
-+ (void)sendCSAT:(LPConversationEntity * _Nonnull)conversation csat:(CSATModel * _Nonnull)csat SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.sendCSAT(_:csat:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)sendCSAT:(LPConversationEntity * _Nonnull)conversation csat:(CSATModel * _Nonnull)csat;
 /// Subscribe for exConversation notifications per for brandID
 /// Use last updated time from the saved subscription times dictionary
 /// Note: if there is an existing previous subscriptionID, unregister it before registering new one.
-+ (void)subscribeConversationNotifications:(NSString * _Nonnull)brandID userID:(NSString * _Nonnull)userID socketType:(enum SocketType)socketType completion:(void (^ _Nullable)(NSString * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.subscribeConversationNotifications(_:userID:socketType:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)subscribeConversationNotifications:(NSString * _Nonnull)brandID userID:(NSString * _Nonnull)userID socketType:(enum SocketType)socketType completion:(void (^ _Nullable)(NSString * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /// Unsubscribe from exConversation notifications per brandID for subscriptionID
-+ (void)unsubscribeConversationNotifications:(NSString * _Nonnull)brandID subscriptionID:(NSString * _Nonnull)subscriptionID SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.unsubscribeConversationNotifications(_:subscriptionID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)unsubscribeConversationNotifications:(NSString * _Nonnull)brandID subscriptionID:(NSString * _Nonnull)subscriptionID;
 /// Determines whether history query messages already fecthced
-+ (BOOL)didFetchHistoryQueryMessages SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.didFetchHistoryQueryMessages()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)didFetchHistoryQueryMessages SWIFT_WARN_UNUSED_RESULT;
 /// Determines whether history query messages is now being fetched
-+ (BOOL)isFetchingHistoryQueryMessages SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.isFetchingHistoryQueryMessages()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)isFetchingHistoryQueryMessages SWIFT_WARN_UNUSED_RESULT;
 /// Determines the name of the assigned agent that should be presented in UI areas.
 /// If assigned agent exists and has a nickname - return it. Otherwise, return nil.
 /// If nil is returned, it should be handled according to UI area
-+ (NSString * _Nullable)agentNameUIRepresentation:(LPConversationEntity * _Nullable)conversation SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.agentNameUIRepresentation(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (NSString * _Nullable)agentNameUIRepresentation:(LPConversationEntity * _Nullable)conversation SWIFT_WARN_UNUSED_RESULT;
 /// Create resolved system message for conversation, according to resolving side
 /// Timestamp - when agent resolved we take the timestamp from server, when consumer resolved we take now.
-+ (LPMessageEntity * _Nullable)createResolveLocalMessage:(LPConversationEntity * _Nonnull)conversation endTime:(NSDate * _Nonnull)endTime SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.createResolveLocalMessage(_:endTime:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPMessageEntity * _Nullable)createResolveLocalMessage:(LPConversationEntity * _Nonnull)conversation endTime:(NSDate * _Nonnull)endTime SWIFT_WARN_UNUSED_RESULT;
 /// Creates local system message for masked message according to the current masking type:
 /// \param conversation conversation that the message will be added to
 ///
@@ -347,33 +350,33 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///
 /// returns:
 /// local masked message, nil if failed
-+ (LPMessageEntity * _Nullable)createMessageMaskedLocalMessage:(LPConversationEntity * _Nonnull)conversation isRealTimeMasking:(BOOL)isRealTimeMasking SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.createMessageMaskedLocalMessage(_:isRealTimeMasking:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPMessageEntity * _Nullable)createMessageMaskedLocalMessage:(LPConversationEntity * _Nonnull)conversation isRealTimeMasking:(BOOL)isRealTimeMasking SWIFT_WARN_UNUSED_RESULT;
 /// Create welcome local system message for conversation
-+ (LPMessageEntity * _Nullable)createWelcomeLocalMessage:(LPConversationEntity * _Nonnull)conversation SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.createWelcomeLocalMessage(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPMessageEntity * _Nullable)createWelcomeLocalMessage:(LPConversationEntity * _Nonnull)conversation SWIFT_WARN_UNUSED_RESULT;
 /// Upload and send messge with file from gallery or camera based on image info which retrieved in UIImagePickerDelegate
-+ (void)uploadFileFromImageInfoWithImageInfo:(NSDictionary<NSString *, id> * _Nonnull)imageInfo caption:(NSString * _Nonnull)caption conversation:(LPConversationEntity * _Null_unspecified)conversation completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.uploadFileFromImageInfo(imageInfo:caption:conversation:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)uploadFileFromImageInfoWithImageInfo:(NSDictionary<NSString *, id> * _Nonnull)imageInfo caption:(NSString * _Nonnull)caption conversation:(LPConversationEntity * _Null_unspecified)conversation completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Upload file that is saved on disk and send message (mainly for failed messages)
-+ (void)uploadFileFromDiskWithMessage:(LPMessageEntity * _Nonnull)message conversation:(LPConversationEntity * _Nonnull)conversation completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.uploadFileFromDisk(message:conversation:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)uploadFileFromDiskWithMessage:(LPMessageEntity * _Nonnull)message conversation:(LPConversationEntity * _Nonnull)conversation completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Downloads a file from Swift server and returns an image to show
-+ (void)downloadFileWithConversation:(LPConversationEntity * _Nonnull)conversation file:(LPFileEntity * _Nonnull)file completion:(void (^ _Nonnull)(UIImage * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.downloadFile(conversation:file:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)downloadFileWithConversation:(LPConversationEntity * _Nonnull)conversation file:(LPFileEntity * _Nonnull)file completion:(void (^ _Nonnull)(UIImage * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Requests the AMS for an upload url for swift server
-+ (void)requestUploadURLWithConversation:(LPConversationEntity * _Nonnull)conversation fileSize:(double)fileSize fileExtention:(NSString * _Nonnull)fileExtention completion:(void (^ _Nonnull)(RequestSwiftURL * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.requestUploadURL(conversation:fileSize:fileExtention:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)requestUploadURLWithConversation:(LPConversationEntity * _Nonnull)conversation fileSize:(double)fileSize fileExtention:(NSString * _Nonnull)fileExtention completion:(void (^ _Nonnull)(RequestSwiftURL * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Requests the AMS for a download url from swift server
-+ (void)requestDownloadURLWithConversation:(LPConversationEntity * _Nonnull)conversation file:(LPFileEntity * _Nonnull)file completion:(void (^ _Nonnull)(RequestSwiftURL * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.requestDownloadURL(conversation:file:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)requestDownloadURLWithConversation:(LPConversationEntity * _Nonnull)conversation file:(LPFileEntity * _Nonnull)file completion:(void (^ _Nonnull)(RequestSwiftURL * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Clear all singleton managers with their properties from memory.
 /// This method will release any data objects and data structures.
-+ (void)clearManagers SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.clearManagers()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)takeConversation:(Ring * _Nonnull)ring agentToken:(NSString * _Nonnull)agentToken completion:(void (^ _Nonnull)(LPConversationEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.takeConversation(_:agentToken:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)backToQueue:(NSString * _Nonnull)userID conversation:(LPConversationEntity * _Nonnull)conversation SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.backToQueue(_:conversation:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)subscribeAgentState:(NSString * _Nonnull)agentID conversation:(LPConversationEntity * _Nonnull)conversation SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.subscribeAgentState(_:conversation:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)setAgentState:(NSString * _Nonnull)agentUserId channels:(NSArray<NSString *> * _Nonnull)channels availability:(NSString * _Nonnull)availability description:(NSString * _Nonnull)description conversation:(LPConversationEntity * _Nonnull)conversation SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.setAgentState(_:channels:availability:description:conversation:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)agentRequestConversation:(NSDictionary<NSString *, NSString *> * _Nonnull)context ttrDefName:(NSString * _Nonnull)ttrDefName channelType:(NSString * _Nonnull)channelType consumerId:(NSString * _Nonnull)consumerId conversation:(LPConversationEntity * _Nonnull)conversation SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.agentRequestConversation(_:ttrDefName:channelType:consumerId:conversation:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (NSArray<NSString *> * _Nonnull)getAllConsumersID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getAllConsumersID()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)clearManagers;
++ (void)takeConversation:(Ring * _Nonnull)ring agentToken:(NSString * _Nonnull)agentToken completion:(void (^ _Nonnull)(LPConversationEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
++ (void)backToQueue:(NSString * _Nonnull)userID conversation:(LPConversationEntity * _Nonnull)conversation;
++ (void)subscribeAgentState:(NSString * _Nonnull)agentID conversation:(LPConversationEntity * _Nonnull)conversation;
++ (void)setAgentState:(NSString * _Nonnull)agentUserId channels:(NSArray<NSString *> * _Nonnull)channels availability:(NSString * _Nonnull)availability description:(NSString * _Nonnull)description conversation:(LPConversationEntity * _Nonnull)conversation;
++ (void)agentRequestConversation:(NSDictionary<NSString *, NSString *> * _Nonnull)context ttrDefName:(NSString * _Nonnull)ttrDefName channelType:(NSString * _Nonnull)channelType consumerId:(NSString * _Nonnull)consumerId conversation:(LPConversationEntity * _Nonnull)conversation;
++ (NSArray<NSString *> * _Nonnull)getAllConsumersID SWIFT_WARN_UNUSED_RESULT;
 /// Get all the conversations fetched from the DB by userId query
 ///
 /// returns:
 /// Dictionary of ConversationId:Conversation
-+ (NSDictionary<NSString *, NSArray<LPConversationEntity *> *> * _Nonnull)getConversationsByConsumers SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getConversationsByConsumers()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (NSDictionary<NSString *, NSArray<LPConversationEntity *> *> * _Nonnull)getConversationsByConsumers SWIFT_WARN_UNUSED_RESULT;
 /// Prepare secure form to be open in a webview
 /// This method generates read and write OTK from UMS and build URL to be used for PCI GW
 /// \param form form object to get the url for
@@ -382,61 +385,68 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///
 /// \param failure failure block with error
 ///
-+ (void)prepareSecureFormWithForm:(LPFormEntity * _Nonnull)form completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.prepareSecureForm(form:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-/// Gets structure content messages with a state of “loading”
++ (void)prepareSecureFormWithForm:(LPFormEntity * _Nonnull)form completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
+/// Gets link preview messages with a state of “loading”
 ///
 /// returns:
 /// Optional array of messages
-+ (NSArray<LPMessageEntity *> * _Nullable)getLoadingStructureContentMessages SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getLoadingStructureContentMessages()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-/// Gets structure content boards with a state of “loading”
++ (NSArray<LPMessageEntity *> * _Nullable)getLoadingStructuredContentMessages SWIFT_WARN_UNUSED_RESULT;
+/// Gets link preview boards with a state of “loading”
 ///
 /// returns:
 /// Optional array of custom boards
-+ (NSArray<LPCustomItemEntity *> * _Nullable)getLoadingStructureContentCustomItems SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getLoadingStructureContentCustomItems()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (NSArray<LPLinkPreviewEntity *> * _Nullable)getLoadingStructuredContentCustomItems SWIFT_WARN_UNUSED_RESULT;
+/// Determine if the brand has an active controller/bot in his conversations
+/// \param brandID brandID owner of the controller
+///
+///
+/// returns:
+/// true if active else false
++ (BOOL)hasActiveController:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// Get current WebSocket (LPWebSocket) for brand if exists
-+ (LPWebSocket * _Nullable)getSocket:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getSocket(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPWebSocket * _Nullable)getSocket:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// Open and reconnect each WebSocket in the web sockets map.
-+ (void)openAllSockets SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.openAllSockets()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)openAllSockets;
 /// Open and reconnect single WebSocket and assign to web sockets map.
 /// This method creates new WebSocket instances based on the previous ones because we can’t reuse WebSocket instances.
-+ (void)openSocket:(LPWebSocket * _Nonnull)webSocket SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.openSocket(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)openSocket:(LPWebSocket * _Nonnull)webSocket;
 /// Close all sockets in the web sockets map
 /// We DON’T remove the web sockets from the map in order to be able to re-create web socket from a previous one
-+ (void)closeAllSockets SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.closeAllSockets()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)closeAllSockets;
 /// Upload File to Swift server and AMS using file operation
-+ (void)uploadFileWithFile:(LPFileEntity * _Nonnull)file uploadRelativePath:(NSString * _Nonnull)uploadRelativePath tempURLSig:(NSString * _Nonnull)tempURLSig tempURLExpiry:(NSString * _Nonnull)tempURLExpiry completion:(void (^ _Nonnull)(LPFileEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.uploadFile(file:uploadRelativePath:tempURLSig:tempURLExpiry:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)uploadFileWithFile:(LPFileEntity * _Nonnull)file uploadRelativePath:(NSString * _Nonnull)uploadRelativePath tempURLSig:(NSString * _Nonnull)tempURLSig tempURLExpiry:(NSString * _Nonnull)tempURLExpiry completion:(void (^ _Nonnull)(LPFileEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Download file/photo from swift server
-+ (void)downloadFileWithFile:(LPFileEntity * _Nonnull)file relativePath:(NSString * _Nonnull)relativePath tempURLSig:(NSString * _Nonnull)tempURLSig tempURLExpiry:(NSString * _Nonnull)tempURLExpiry completion:(void (^ _Nonnull)(LPFileEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.downloadFile(file:relativePath:tempURLSig:tempURLExpiry:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)downloadFileWithFile:(LPFileEntity * _Nonnull)file relativePath:(NSString * _Nonnull)relativePath tempURLSig:(NSString * _Nonnull)tempURLSig tempURLExpiry:(NSString * _Nonnull)tempURLExpiry completion:(void (^ _Nonnull)(LPFileEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Get full photo image from disk using file path.
 /// If file path is invalid, an error will be invoked.
 /// If file does not exist, function will return nil
-+ (void)getPhotoFromFileWithFile:(LPFileEntity * _Nonnull)file completion:(SWIFT_NOESCAPE void (^ _Nonnull)(UIImage * _Nullable))completion failure:(SWIFT_NOESCAPE void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getPhotoFromFile(file:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)getPhotoFromFileWithFile:(LPFileEntity * _Nonnull)file completion:(SWIFT_NOESCAPE void (^ _Nonnull)(UIImage * _Nullable))completion failure:(SWIFT_NOESCAPE void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Get full thumbnail image from disk using file path.
 /// If image fails to created or file path is invalid, an error will be invoked.
-+ (UIImage * _Nullable)getThumbnailFromFileWithFile:(LPFileEntity * _Nonnull)file SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getThumbnailFromFile(file:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (UIImage * _Nullable)getThumbnailFromFileWithFile:(LPFileEntity * _Nonnull)file SWIFT_WARN_UNUSED_RESULT;
 /// Returns a base64 string representation of the file’s thumbnail
-+ (void)getBase64ThumbnailStringWithFile:(LPFileEntity * _Nonnull)file completion:(SWIFT_NOESCAPE void (^ _Nonnull)(NSString * _Nonnull))completion failure:(SWIFT_NOESCAPE void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getBase64ThumbnailString(file:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)getBase64ThumbnailStringWithFile:(LPFileEntity * _Nonnull)file completion:(SWIFT_NOESCAPE void (^ _Nonnull)(NSString * _Nonnull))completion failure:(SWIFT_NOESCAPE void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Deletes file and thumbnail from disk
-+ (void)deleteFileFromDiskWithFile:(LPFileEntity * _Nonnull)file SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.deleteFileFromDisk(file:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)deleteFileFromDiskWithFile:(LPFileEntity * _Nonnull)file;
 /// Deleting the main directory with all files in it from the disk
 /// This method is performed in background thread
-+ (void)deleteAllFilesFromDisk SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.deleteAllFilesFromDisk()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)deleteAllFilesFromDiskWithCompletion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// This method delete number of files that exceeded maxNumberOfSavedFilesOnDisk from configuration.
 /// The files will be get deleted accoring to FIFO methodology.
 /// This method is performed in background thread and only of the photo sharing feature is enabled
-+ (void)handleMaxNumberOfSavedFilesOnDisk SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.handleMaxNumberOfSavedFilesOnDisk()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)handleMaxNumberOfSavedFilesOnDisk;
 /// Get Brand object for account ID
 /// If there is no brand object for the account ID, a new brand will be created in DB
-+ (LPBrandEntity * _Nonnull)getOrCreateBrandByAccountID:(NSString * _Nonnull)accountID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getOrCreateBrandByAccountID(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPBrandEntity * _Nonnull)getOrCreateBrandByAccountID:(NSString * _Nonnull)accountID SWIFT_WARN_UNUSED_RESULT;
 /// Clear a single conversation and its assoicated messages and files (also from the disk)
 /// Return TRUE if the conversation and its messages was deleted.
 /// Return FALSE if the conversation or one if its messages were failed to delete.
-+ (BOOL)clearConversationFromDB:(LPConversationEntity * _Nonnull)conversation SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.clearConversationFromDB(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (BOOL)clearConversationFromDB:(LPConversationEntity * _Nonnull)conversation SWIFT_WARN_UNUSED_RESULT;
 /// Get all closed conversations from database
-+ (NSArray<LPConversationEntity *> * _Nullable)getAllClosedConversations:(NSDate * _Nullable)olderThanDate SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getAllClosedConversations(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (NSArray<LPConversationEntity *> * _Nullable)getAllClosedConversations:(NSDate * _Nullable)olderThanDate SWIFT_WARN_UNUSED_RESULT;
 /// Get all conversations from DB sorted by creation date (first object is the latest conversation)
 /// If includeQueriedOnly parameter is false, only new conversations or conversations which messages should not be queried, will be returned
-+ (NSArray<LPConversationEntity *> * _Nonnull)getConversationsSortedByDate:(id <ConversationParamProtocol> _Nonnull)query includeQueriedOnly:(BOOL)includeQueriedOnly SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getConversationsSortedByDate(_:includeQueriedOnly:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (NSArray<LPConversationEntity *> * _Nonnull)getConversationsSortedByDate:(id <ConversationParamProtocol> _Nonnull)query includeQueriedOnly:(BOOL)includeQueriedOnly SWIFT_WARN_UNUSED_RESULT;
 /// This method fetch user profile from the server.
 /// <ul>
 ///   <li>
@@ -449,9 +459,9 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///     Return User to completion block
 ///   </li>
 /// </ul>
-+ (void)fetchUser:(NSString * _Nonnull)brandID userID:(NSString * _Nonnull)userID isMe:(BOOL)isMe completion:(void (^ _Nullable)(LPUserEntity * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.fetchUser(_:userID:isMe:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)fetchUser:(NSString * _Nonnull)brandID userID:(NSString * _Nonnull)userID isMe:(BOOL)isMe completion:(void (^ _Nullable)(LPUserEntity * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /// Attach completion block which is being invoken when the Consumer (My) User is retrieved
-+ (void)attachMyUserCompletion:(void (^ _Nonnull)(NSString * _Nonnull))completion SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.attachMyUserCompletion(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)attachMyUserCompletion:(void (^ _Nonnull)(NSString * _Nonnull))completion;
 /// This method fetch user from the database.
 /// <ul>
 ///   <li>
@@ -461,7 +471,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///     If user does not exist, a nil will be returned
 ///   </li>
 /// </ul>
-+ (LPUserEntity * _Nullable)getUserFromDatabaseWithUserID:(NSString * _Nonnull)userID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getUserFromDatabase(userID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPUserEntity * _Nullable)getUserFromDatabaseWithUserID:(NSString * _Nonnull)userID SWIFT_WARN_UNUSED_RESULT;
 /// Fetching the user profile (consumer or agent) from server and update in database received details and current date as lastUpdated
 /// Fetch will be performed in the following cases:
 /// <ol>
@@ -475,16 +485,13 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///     User was not fetched for more than 24Hrs
 ///   </li>
 /// </ol>
-+ (void)refreshUserProfileWithBrandID:(NSString * _Nonnull)brandID user:(LPUserEntity * _Nonnull)user SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.refreshUserProfile(brandID:user:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-/// Get default agent user from DB
-/// If there is no agent user in db, a new instance will be created and saved to db with default values
-+ (LPUserEntity * _Nonnull)getDefaultAgentUserFromDB:(NSString * _Nonnull)senderId SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getDefaultAgentUserFromDB(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)refreshUserProfileWithBrandID:(NSString * _Nonnull)brandID user:(LPUserEntity * _Nonnull)user;
 /// Set token for Pusher service in order to be able to receive remote push notifications
 /// Optional - alternateBundleID, set custom bundle ID for Pusher with for the token
-+ (void)setPusherTokenWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.setPusherToken(token:alternateBundleID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)setPusherTokenWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID;
 /// Set token for VoIP Pusher service in order to be able to receive remote calls
 /// Optional - alternateBundleID, set custom bundle ID for Pusher with for the token
-+ (void)setPusherVoipTokenWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.setPusherVoipToken(token:alternateBundleID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)setPusherVoipTokenWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID;
 /// Register pusher with push notification token received from APNS (Apple).
 /// Before registering the Pusher, we make sure have the following params:
 /// <ul>
@@ -502,7 +509,24 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///     When all params availble - peform register
 ///   </li>
 /// </ul>
-+ (void)registerPusher:(LPBrandEntity * _Nonnull)brand SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.registerPusher(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)registerPusher:(LPBrandEntity * _Nonnull)brand;
+/// Get unread message badge counter
+/// There are two options to get this counter:
+/// <ol>
+///   <li>
+///     If the time condition is met we are prefoming a REST request to get it from pusher
+///   </li>
+///   <li>
+///     otherwise, return the cached number we have
+///   </li>
+/// </ol>
+/// \param conversationQuery conversationQuery: used to identify the related brand
+///
+/// \param completion called once the operation ends sucessfully
+///
+/// \param failure called once the operation failed
+///
++ (void)getUnreadMessagesCount:(id <ConversationParamProtocol> _Nonnull)conversationQuery completion:(void (^ _Nonnull)(NSInteger))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Unregister pusher.
 /// Before unregistering the Pusher, we make sure we have the following params:
 /// <ul>
@@ -517,24 +541,24 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 ///     When all params availble - peform unregister
 ///   </li>
 /// </ul>
-+ (void)unregisterPusher:(LPBrandEntity * _Nonnull)brand SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.unregisterPusher(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)unregisterPusher:(LPBrandEntity * _Nonnull)brand completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Get CSDS domain for accountID and service name
 /// This method get all the CSDS domains and look for the specific domain per service
-+ (void)getCSDSDomain:(NSString * _Nonnull)accountID serviceName:(NSString * _Nonnull)serviceName completion:(void (^ _Nonnull)(NSString * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getCSDSDomain(_:serviceName:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)getCSDSDomain:(NSString * _Nonnull)accountID serviceName:(NSString * _Nonnull)serviceName completion:(void (^ _Nonnull)(NSString * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Load image from URL from a server or from the images cache manager
-+ (void)loadImageFromURLWithImageUrl:(NSString * _Nullable)imageUrl completion:(void (^ _Nonnull)(UIImage * _Nullable, BOOL))completion failure:(void (^ _Nullable)(void))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.loadImageFromURL(imageUrl:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)loadImageFromURLWithImageUrl:(NSString * _Nullable)imageUrl completion:(void (^ _Nonnull)(UIImage * _Nullable, BOOL))completion failure:(void (^ _Nullable)(void))failure;
 /// Set image for URL in images cache
-+ (void)setImageByURL:(UIImage * _Nonnull)image url:(NSString * _Nonnull)url SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.setImageByURL(_:url:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)setImageByURL:(UIImage * _Nonnull)image url:(NSString * _Nonnull)url;
 /// Get image by URL from images cache
-+ (UIImage * _Nullable)getImageByURL:(NSString * _Nonnull)url SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getImageByURL(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (UIImage * _Nullable)getImageByURL:(NSString * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 /// Determine if network is reachable using reachability framework
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isNetworkReachable SWIFT_DEPRECATED_OBJC("Swift property 'LPMessagingAPI.isNetworkReachable' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
-+ (BOOL)isNetworkReachable SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'LPMessagingAPI.isNetworkReachable' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isNetworkReachable;)
++ (BOOL)isNetworkReachable SWIFT_WARN_UNUSED_RESULT;
 /// Get open conversation from DB
 ///
 /// returns:
 /// an open conversation if exists - if none, returns nil
-+ (LPConversationEntity * _Nullable)getOpenConveration SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingAPI.getOpenConveration()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (LPConversationEntity * _Nullable)getOpenConveration SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -545,116 +569,166 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK22LPMessagingAPIDelegate_")
 
 @protocol LPMessagingSDKdelegate;
 @class UIViewController;
+@class LPConversationViewParams;
 @class UIBarButtonItem;
 @class LPLog;
 
 SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingSDK")
 @interface LPMessagingSDK : NSObject <UINavigationControllerDelegate>
-@property (nonatomic, weak) id <LPMessagingSDKdelegate> _Nullable delegate SWIFT_DEPRECATED_OBJC("Swift property 'LPMessagingSDK.delegate' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, weak) id <LPMessagingSDKNotificationDelegate> _Nullable notificationDelegate SWIFT_DEPRECATED_OBJC("Swift property 'LPMessagingSDK.notificationDelegate' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable accountID SWIFT_DEPRECATED_OBJC("Swift property 'LPMessagingSDK.accountID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, weak) id <LPMessagingSDKdelegate> _Nullable delegate;
+@property (nonatomic, weak) id <LPMessagingSDKNotificationDelegate> _Nullable notificationDelegate;
+@property (nonatomic, copy) NSString * _Nullable accountID;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMessagingSDK * _Nonnull instance SWIFT_DEPRECATED_OBJC("Swift property 'LPMessagingSDK.instance' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
-+ (LPMessagingSDK * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'LPMessagingSDK.instance' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMessagingSDK * _Nonnull instance;)
++ (LPMessagingSDK * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
 /// Initialize the SDK and all of its components.
 /// Optional paramaters:
 /// <brandID> of the host app.
 /// This method throws an error/return false with with an error, in case the initialization failed.
-- (BOOL)initialize:(NSString * _Nullable)brandID error:(NSError * _Nullable * _Nullable)error SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.initialize(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-/// Show conversation view for conversation query.
-/// This method starts the conversation and show all the existing messages it exist.
-/// Optional paramaters:
-/// <authenticationCode> to use an an authenticated users.
-/// <containerViewController> the containter which presents the conversation view as a child View Controller.
-- (void)showConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationCode:(NSString * _Nullable)authenticationCode containerViewController:(UIViewController * _Nullable)containerViewController SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.showConversation(_:authenticationCode:containerViewController:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (BOOL)initialize:(NSString * _Nullable)brandID error:(NSError * _Nullable * _Nullable)error;
+- (void)showConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationCode:(NSString * _Nullable)authenticationCode containerViewController:(UIViewController * _Nullable)containerViewController;
+/// Show Conversation view and starts the conversation and show all the existing messages it exist.
+/// \param conversationViewParams an LPConversationViewParams object to determine the properties of the views. Such as Container or Window or if ViewOnly.
+///
+/// \param authenticationParams an optional LPAuthenticationParams object to determine the properties of an authenticated connection. If using authenticate connection, this paramater must
+/// be passed. LPAuthenticationParams supports Code Flow login or Implicit Flow login.
+///
+- (void)showConversation:(LPConversationViewParams * _Nonnull)conversationViewParams authenticationParams:(LPAuthenticationParams * _Nullable)authenticationParams;
 /// Remove conversation view for conversation query from its container or window view.
 /// This method ends the conversation’s connection.
-- (void)removeConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.removeConversation(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)removeConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery;
+- (void)reconnect:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationCode:(NSString * _Nonnull)authenticationCode;
 /// This method reconnects the conversation’s connection for conversation query.
 /// Reconnect open related webSockets and sync the converstion with its latest updates.
-/// Additional paramaters:
-/// <authenticationCode> to use an an authenticated users.
-- (void)reconnect:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationCode:(NSString * _Nonnull)authenticationCode SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.reconnect(_:authenticationCode:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     conversationQuery: conversationQuery of ConversationParamProtocol
+///   </li>
+///   <li>
+///     authenticationParams: an LPAuthenticationParams object to determine the properties of an authenticated connection. LPAuthenticationParams supports Code Flow login or Implicit Flow login.
+///   </li>
+/// </ul>
+- (void)reconnect:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationParams:(LPAuthenticationParams * _Nonnull)authenticationParams;
 /// This method changes the state of the action menu of the conversation for brandID.
-- (void)toggleChatActions:(NSString * _Nonnull)accountID sender:(UIBarButtonItem * _Nullable)sender SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.toggleChatActions(_:sender:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)toggleChatActions:(NSString * _Nonnull)accountID sender:(UIBarButtonItem * _Nullable)sender;
 /// This method sets user details for the consumer of a brand.
 /// The user object is in Type of LPUser which includes all the user details.
 /// Additional paramaters:
 /// <brandID> is the brand of the related user.
 /// If the SDK is not connected, it’ll save the last user for each brand, until connected.
-- (void)setUserProfile:(LPUser * _Nonnull)lpuser brandID:(NSString * _Nonnull)brandID SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.setUserProfile(_:brandID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)setUserProfile:(LPUser * _Nonnull)lpuser brandID:(NSString * _Nonnull)brandID;
 /// This method passes a user info of a remote push notification to be handled by the SDK.
-- (void)handlePush:(NSDictionary * _Nonnull)userInfo SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.handlePush(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)handlePush:(NSDictionary * _Nonnull)userInfo;
 /// This method registers the host app in the SDK Pusher service in order to be able to receive push notification in messaging.
 /// Optional paramaters:
 /// <notificationDelegate> is the implementer of LPMessagingSDKNotificationDelegate.
 /// <alternateBundleID> is a value for using in order to let the Pusher service to identify the host app with this bundle identifier.
-- (void)registerPushNotificationsWithToken:(NSData * _Nonnull)token notificationDelegate:(id <LPMessagingSDKNotificationDelegate> _Nullable)notificationDelegate alternateBundleID:(NSString * _Nullable)alternateBundleID SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.registerPushNotifications(token:notificationDelegate:alternateBundleID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)registerVoipPushNotificationsWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.registerVoipPushNotifications(token:alternateBundleID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)registerPushNotificationsWithToken:(NSData * _Nonnull)token notificationDelegate:(id <LPMessagingSDKNotificationDelegate> _Nullable)notificationDelegate alternateBundleID:(NSString * _Nullable)alternateBundleID;
+- (void)registerVoipPushNotificationsWithToken:(NSData * _Nonnull)token alternateBundleID:(NSString * _Nullable)alternateBundleID;
 /// This method created ConversationParamProtocol of Brand query type.
-- (id <ConversationParamProtocol> _Nonnull)getConversationBrandQuery:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.getConversationBrandQuery(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-/// This method created ConversationParamProtocol of Brand and Skill query type.
-- (id <ConversationParamProtocol> _Nonnull)getConversationBrandAndSkillQuery:(NSString * _Nonnull)brandID skillID:(NSString * _Nonnull)skillID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.getConversationBrandAndSkillQuery(_:skillID:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (id <ConversationParamProtocol> _Nonnull)getConversationBrandQuery:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// This method created ConversationParamProtocol of Consumer and Skill query type.
-- (id <ConversationParamProtocol> _Nonnull)getConversationConsumerQuery:(NSString * _Nullable)consumerID brandID:(NSString * _Nonnull)brandID agentToken:(NSString * _Nonnull)agentToken SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.getConversationConsumerQuery(_:brandID:agentToken:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (id <ConversationParamProtocol> _Nonnull)getConversationConsumerQuery:(NSString * _Nullable)consumerID brandID:(NSString * _Nonnull)brandID agentToken:(NSString * _Nonnull)agentToken SWIFT_WARN_UNUSED_RESULT;
 /// This method checks for an active(Open/Created) conversation according to conversation query.
 /// Return value:
 /// True - there is an active conversation.
 /// False - there is no active conversation.
-- (BOOL)checkActiveConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.checkActiveConversation(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (BOOL)checkActiveConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 /// DEPRECATED - This method sets a custom image for the custom button in the conversation navigationBar.
 /// Use customButtonImage instead
-- (void)setCustomButton:(UIImage * _Nullable)image SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.setCustomButton(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)setCustomButton:(UIImage * _Nullable)image;
 /// This method checks if the active conversation of a conversation query marked as Urgent.
 /// Return value:
 /// True - conversation is marked as Urgent.
 /// False - conversation is not marked as Urgent.
-- (BOOL)isUrgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.isUrgent(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (BOOL)isUrgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 /// This method marks the active conversation of a conversation query as Urgent.
-- (void)markAsUrgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.markAsUrgent(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)markAsUrgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery;
 /// This method dismisses the active conversation from Urgent to Normal.
-- (void)dismissUrgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.dismissUrgent(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)dismissUrgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery;
 /// This method ends the active conversation if exists.
-- (void)resolveConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.resolveConversation(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)resolveConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery;
 /// This methods returns the assigned agent of the active or the latest closed conversation, if exists.
-- (LPUser * _Nullable)getAssignedAgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.getAssignedAgent(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (LPUser * _Nullable)getAssignedAgent:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 /// This method determines wether a brandID is Ready.
 /// Ready means that the brand is connected and conversation can be proccessed.
-- (BOOL)isBrandReady:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.isBrandReady(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (BOOL)isBrandReady:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// This method returns the SDK version.
-- (NSString * _Nullable)getSDKVersion SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.getSDKVersion()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSString * _Nullable)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
+/// Get Inactive time interval in seconds of the user last touch on screen. This interval applies to scroll/messaging/action menus and any other general action on the conversation screen.
+/// If the screen is not active or the application is in background this api will return -1.
+///
+/// returns:
+/// Inactive TimeInterval (Double)
+- (NSTimeInterval)getInactiveUserInteractionTimeInterval:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
+/// Get unread message badge counter
+/// There are two options to get this counter:
+/// <ol>
+///   <li>
+///     If the time condition is met we are prefoming a REST request to get it from pusher
+///   </li>
+///   <li>
+///     otherwise, return the cached number we have
+///   </li>
+/// </ol>
+/// \param conversationQuery conversationQuery: used to identify the related brand
+///
+/// \param completion called once the operation ends sucessfully
+///
+/// \param failure called once the operation failed
+///
++ (void)getUnreadMessagesCount:(id <ConversationParamProtocol> _Nonnull)conversationQuery completion:(void (^ _Nonnull)(NSInteger))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// This method deletes all the messages and closed conversation of the related conversation query.
 /// This method throws an error if the conversations history failed to cleared.
 /// Note: clear history is allowed only if there is no open/active conversation related to the passed conversation query.
-- (BOOL)clearHistory:(id <ConversationParamProtocol> _Nonnull)conversationQuery error:(NSError * _Nullable * _Nullable)error SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.clearHistory(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (BOOL)clearHistory:(id <ConversationParamProtocol> _Nonnull)conversationQuery error:(NSError * _Nullable * _Nullable)error;
 /// This method subscribes the host app to recieve log events from a specific log level and above.
 /// Optionl log levels: TRACE, DEBUG, INFO, WARNING and ERROR.
 /// The completion block will pass LPLog object which consists all the information for the log.
-- (void)subscribeLogEvents:(enum LogLevel)logLevel logEvent:(void (^ _Nonnull)(LPLog * _Nonnull))logEvent SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.subscribeLogEvents(_:logEvent:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)subscribeLogEvents:(enum LogLevel)logLevel logEvent:(void (^ _Nonnull)(LPLog * _Nonnull))logEvent;
 /// Prints all localized string’s keys
-- (void)printAllLocalizedKeys SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.printAllLocalizedKeys()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)printAllLocalizedKeys;
 /// Prints the SDK supported languages
-- (void)printSupportedLanguages SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.printSupportedLanguages()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)printSupportedLanguages;
 /// Get all supported languages as Strings dictionary where:
 /// Key - Locale key
 /// Value - explicit language name (example: “English”, “Portuguese (Brazil)”, …)
-- (NSDictionary<NSString *, NSString *> * _Nonnull)getAllSupportedLanguages SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.getAllSupportedLanguages()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSDictionary<NSString *, NSString *> * _Nonnull)getAllSupportedLanguages SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 
 
 @interface LPMessagingSDK (SWIFT_EXTENSION(LPMessagingSDK))
-- (void)initSocketForBrandID:(NSString * _Nonnull)brandID agentToken:(NSString * _Nonnull)agentToken readyCompletion:(void (^ _Nullable)(void))readyCompletion SWIFT_METHOD_FAMILY(none) SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.initSocketForBrandID(_:agentToken:readyCompletion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (id <ConversationViewControllerAgentDelegate> _Nonnull)showAgentConversation:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationCode:(NSString * _Nullable)authenticationCode containerViewController:(UIViewController * _Nonnull)containerViewController SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.showAgentConversation(_:authenticationCode:containerViewController:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)initSocketForBrandID:(NSString * _Nonnull)brandID agentToken:(NSString * _Nonnull)agentToken readyCompletion:(void (^ _Nullable)(void))readyCompletion SWIFT_METHOD_FAMILY(none);
+- (id <ConversationViewControllerAgentDelegate> _Nonnull)showAgentConversationWithConversationViewParams:(LPConversationViewParams * _Nonnull)conversationViewParams SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 
 
 @interface LPMessagingSDK (SWIFT_EXTENSION(LPMessagingSDK))
-- (void)logout SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.logout()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)destruct SWIFT_DEPRECATED_OBJC("Swift method 'LPMessagingSDK.destruct()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)logout;
+/// This method is a destructive method that is typically used to clean a user’s data before a second user logs into the same device or just to logs the current user out.
+/// This method conducts the following:
+/// Unregisters from the push notification service.
+/// Clears all SDK persistent data.
+/// Cleans running operations (see <a href="consumer-experience-ios-sdk-destruct.html">destruct</a>{:target=”_blank”}).
+/// Invocation of destruct() method
+/// \param completion A completion block for successfully logout. Completion block will be invoked only if all logout steps succeeded.
+///
+/// \param failure A failure block with a specified error for logout failure. Failure block will be invoked if at least one of the logout steps has failed.
+///
+- (void)logoutWithCompletion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
+/// This method is a destructive method that is typically used stop and clear all the metadata of the SDK.
+/// This method conducts the following:
+/// Clears all SDK non-persistent data.
+/// Stops all connections.
+/// Remove Conversation View Controller
+- (void)destruct;
 @end
 
 @class LPNotification;
@@ -680,17 +754,21 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK22LPMessagingSDKdelegate_")
 - (void)LPMessagingSDKHasConnectionError:(NSString * _Nullable)error;
 - (void)LPMessagingSDKCSATScoreSubmissionDidFinish:(NSString * _Nonnull)brandID rating:(NSInteger)rating;
 - (UIView * _Nonnull)LPMessagingSDKCSATCustomTitleView:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
+- (void)LPMessagingSDKConversationCSATSkipped:(NSString * _Nullable)conversationID;
+- (void)LPMessagingSDKUserDeniedPermission:(enum LPPermissionTypes)permissionType;
 @required
 - (void)LPMessagingSDKObseleteVersion:(NSError * _Nonnull)error;
 - (void)LPMessagingSDKAuthenticationFailed:(NSError * _Nonnull)error;
 - (void)LPMessagingSDKTokenExpired:(NSString * _Nonnull)brandID;
 - (void)LPMessagingSDKError:(NSError * _Nonnull)error;
 @optional
+- (void)LPMessagingSDKConnectionRetriesFailed:(NSError * _Nonnull)error;
 - (void)LPMessagingSDKAgentIsTypingStateChanged:(BOOL)isTyping;
 - (void)LPMessagingSDKConversationStarted:(NSString * _Nullable)conversationID;
 - (void)LPMessagingSDKConversationEnded:(NSString * _Nullable)conversationID;
 - (void)LPMessagingSDKConversationEnded:(NSString * _Nullable)conversationID closeReason:(enum LPConversationCloseReason)closeReason;
 - (void)LPMessagingSDKConversationCSATDismissedOnSubmittion:(NSString * _Nullable)conversationID;
+- (void)LPMessagingSDKConversationCSATDidLoad:(NSString * _Nullable)conversationID;
 - (void)LPMessagingSDKConnectionStateChanged:(BOOL)isReady brandID:(NSString * _Nonnull)brandID;
 - (void)LPMessagingSDKOffHoursStateChanged:(BOOL)isOffHours brandID:(NSString * _Nonnull)brandID;
 - (void)LPMessagingSDKConversationViewControllerDidDismiss;
@@ -699,14 +777,14 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK22LPMessagingSDKdelegate_")
 
 SWIFT_CLASS("_TtC14LPMessagingSDK14LPNotification")
 @interface LPNotification : NSObject
-@property (nonatomic, copy) NSString * _Nonnull text SWIFT_DEPRECATED_OBJC("Swift property 'LPNotification.text' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) LPUser * _Nonnull user SWIFT_DEPRECATED_OBJC("Swift property 'LPNotification.user' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nonnull accountID SWIFT_DEPRECATED_OBJC("Swift property 'LPNotification.accountID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) BOOL isRemote SWIFT_DEPRECATED_OBJC("Swift property 'LPNotification.isRemote' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, copy) NSString * _Nonnull toString SWIFT_DEPRECATED_OBJC("Swift property 'LPNotification.toString' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName uid:(NSString * _Nullable)uid accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote SWIFT_DEPRECATED_OBJC("Swift initializer 'LPNotification.init(text:firstName:lastName:uid:accountID:isRemote:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithMessage:(LPMessageEntity * _Nonnull)message isRemote:(BOOL)isRemote SWIFT_DEPRECATED_OBJC("Swift initializer 'LPNotification.init(message:isRemote:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text user:(LPUser * _Nonnull)user accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'LPNotification.init(text:user:accountID:isRemote:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nonnull text;
+@property (nonatomic, strong) LPUser * _Nonnull user;
+@property (nonatomic, copy) NSString * _Nonnull accountID;
+@property (nonatomic) BOOL isRemote;
+@property (nonatomic, readonly, copy) NSString * _Nonnull toString;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName uid:(NSString * _Nullable)uid accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote;
+- (nonnull instancetype)initWithMessage:(LPMessageEntity * _Nonnull)message isRemote:(BOOL)isRemote;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text user:(LPUser * _Nonnull)user accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -746,7 +824,7 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK17UIAdapterDelegate_")
 @protocol UIAdapterDelegate
 @optional
 - (BOOL)sendClickedWithMessage:(NSString * _Nonnull)message inConversation:(LPConversationEntity * _Nonnull)inConversation SWIFT_WARN_UNUSED_RESULT;
-- (void)executeActionAtIndex:(UIViewController * _Nonnull)viewController index:(NSInteger)index conversation:(LPConversationEntity * _Nullable)conversation complition:(SWIFT_NOESCAPE void (^ _Nonnull)(void))complition;
+- (void)executeActionAtIndex:(UIViewController * _Nonnull)viewController index:(NSInteger)index conversation:(LPConversationEntity * _Nullable)conversation complition:(void (^ _Nonnull)(void))complition;
 - (void)textViewDidBeginEditingWithConversation:(LPConversationEntity * _Nullable)conversation;
 - (void)textViewDidEndEditingWithConversation:(LPConversationEntity * _Nullable)conversation;
 - (BOOL)textView:(UITextView * _Nonnull)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString * _Nonnull)text conversation:(LPConversationEntity * _Nullable)conversation SWIFT_WARN_UNUSED_RESULT;
@@ -757,6 +835,23 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK17UIAdapterDelegate_")
 @end
 
 
+
+
+@interface UIButton (SWIFT_EXTENSION(LPMessagingSDK))
+- (void)actionHandleWithControlEvents:(UIControlEvents)control ForAction:(void (^ _Nonnull)(void))action SWIFT_DEPRECATED_OBJC("Swift method 'UIButton.actionHandle(controlEvents:ForAction:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
+
+
+
+
+
+
+@interface UIPanGestureRecognizer (SWIFT_EXTENSION(LPMessagingSDK))
+/// Initializes a pan gesture recognizer with the specificed handler
+/// \param handler completion
+///
+- (nonnull instancetype)initWithHandler:(void (^ _Nonnull)(UIPanGestureRecognizer * _Nonnull))handler SWIFT_DEPRECATED_OBJC("Swift initializer 'UIPanGestureRecognizer.init(handler:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
 
 
 
@@ -777,6 +872,8 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK17UIAdapterDelegate_")
 /// \param repeatCount Number of times to rotate (Float.infinity for forever)
 ///
 - (void)rotateWithDuration:(double)duration repeatCount:(float)repeatCount SWIFT_DEPRECATED_OBJC("Swift method 'UIView.rotate(duration:repeatCount:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Stop rotation if image by removing all animations
+- (void)stopRotate SWIFT_DEPRECATED_OBJC("Swift method 'UIView.stopRotate()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 
