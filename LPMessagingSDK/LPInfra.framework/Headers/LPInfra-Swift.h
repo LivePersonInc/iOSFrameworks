@@ -177,6 +177,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import UIKit;
 @import CoreGraphics;
+@import CoreLocation;
 @import Dispatch;
 #endif
 
@@ -276,6 +277,12 @@ SWIFT_CLASS("_TtC7LPInfra9CSATModel")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+typedef SWIFT_ENUM(NSInteger, CheckmarksState) {
+  CheckmarksStateSentOnly = 1,
+  CheckmarksStateSentAndAccepted = 2,
+  CheckmarksStateAll = 3,
+};
+
 
 SWIFT_CLASS("_TtC7LPInfra13ConsumerQuery")
 @interface ConsumerQuery : BrandQuery
@@ -347,6 +354,17 @@ SWIFT_CLASS("_TtC7LPInfra15LPAccountEntity")
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC7LPInfra22LPAuthenticationParams")
+@interface LPAuthenticationParams : NSObject
+@property (nonatomic, copy) NSString * _Nullable authenticationCode SWIFT_DEPRECATED_OBJC("Swift property 'LPAuthenticationParams.authenticationCode' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable jwt SWIFT_DEPRECATED_OBJC("Swift property 'LPAuthenticationParams.jwt' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable redirectURI SWIFT_DEPRECATED_OBJC("Swift property 'LPAuthenticationParams.redirectURI' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)initWithAuthenticationCode:(NSString * _Nullable)authenticationCode jwt:(NSString * _Nullable)jwt redirectURI:(NSString * _Nullable)redirectURI OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'LPAuthenticationParams.init(authenticationCode:jwt:redirectURI:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
 @class NSSet;
 
 SWIFT_CLASS("_TtC7LPInfra13LPBrandEntity")
@@ -362,7 +380,7 @@ SWIFT_CLASS("_TtC7LPInfra13LPBrandEntity")
 @property (nonatomic, copy) NSDate * _Nonnull dateJoined;
 @property (nonatomic) BOOL hidden;
 @property (nonatomic, strong) NSSet * _Nonnull accounts;
-@property (nonatomic, copy) NSString * _Nullable authenticationCode SWIFT_DEPRECATED_OBJC("Swift property 'LPBrandEntity.authenticationCode' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) LPAuthenticationParams * _Nullable authenticationParams SWIFT_DEPRECATED_OBJC("Swift property 'LPBrandEntity.authenticationParams' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -406,6 +424,10 @@ SWIFT_CLASS("_TtC7LPInfra8LPConfig")
 @property (nonatomic, strong) UIColor * _Nonnull remoteUserBubbleTimestampColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.remoteUserBubbleTimestampColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Color of the remote user typing bubbles animation
 @property (nonatomic, strong) UIColor * _Nonnull remoteUserTypingTintColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.remoteUserTypingTintColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Color of the remote user’s bubble overlay when user use long press gesture on the bubble. Overlay will appear as long as the menu controller appears on the bubble, when the menu dismissed, overlay will disappear too. In order to show overlay enableBubblesOverlayOnLongPress should be true.
+@property (nonatomic, strong) UIColor * _Nonnull remoteUserBubbleLongPressOverlayColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.remoteUserBubbleLongPressOverlayColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Alpha of the remote user’s bubble overlay when user use long press gesture on the bubble. Value can be 0.0 - 1.0. Overlay will appear as long as the menu controller appears on the bubble, when the menu dismissed, overlay will disappear too. In order to show overlay enableBubblesOverlayOnLongPress should be true.
+@property (nonatomic) float remoteUserBubbleLongPressOverlayAlpha SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.remoteUserBubbleLongPressOverlayAlpha' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Color code for the background of the visitor bubble.
 @property (nonatomic, strong) UIColor * _Nonnull userBubbleBackgroundColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.userBubbleBackgroundColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Color code for links in the text of the visitor bubble.
@@ -424,6 +446,10 @@ SWIFT_CLASS("_TtC7LPInfra8LPConfig")
 @property (nonatomic, strong) UIColor * _Nonnull userBubbleErrorTextColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.userBubbleErrorTextColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Color code for the error view border of the visitor bubble.
 @property (nonatomic, strong) UIColor * _Nonnull userBubbleErrorBorderColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.userBubbleErrorBorderColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Color of the user bubble’s overlay when user use long press gesture on the bubble. Overlay will appear as long as the menu controller appears on the bubble, when the menu dismissed, overlay will disappear too. In order to show overlay enableBubblesOverlayOnLongPress should be true.
+@property (nonatomic, strong) UIColor * _Nonnull userBubbleLongPressOverlayColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.userBubbleLongPressOverlayColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Alpha of the user’s bubble overlay when user use long press gesture on the bubble. Value can be 0.0 - 1.0. Overlay will appear as long as the menu controller appears on the bubble, when the menu dismissed, overlay will disappear too. In order to show overlay enableBubblesOverlayOnLongPress should be true.
+@property (nonatomic) float userBubbleLongPressOverlayAlpha SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.userBubbleLongPressOverlayAlpha' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Enable or disable link preview feature. If disabled, user will not see site’s link preview or link preview.
 @property (nonatomic) BOOL enableLinkPreview SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.enableLinkPreview' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Color code for the background of the link preview area inside cell.
@@ -452,6 +478,11 @@ SWIFT_CLASS("_TtC7LPInfra8LPConfig")
 /// Custom button image. This will be displayed on the navigation bar.
 @property (nonatomic, strong) UIImage * _Nullable customButtonImage SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.customButtonImage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) NSString * _Nonnull customButtonDescription SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.customButtonDescription' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Checkmark visibility of the following options (type CheckmarksState):
+/// SentOnly - Show checkmarks for only Sent messages.
+/// SentAndAccepted - Show checkmarks for only Sent and Accepted messages.
+/// All - Show checkmarks for Sent, Accepted and Read messages.
+@property (nonatomic) enum CheckmarksState checkmarkVisibility SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.checkmarkVisibility' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Color of checkmark indication signs of Sent messages
 @property (nonatomic, strong) UIColor * _Nonnull checkmarkSentColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.checkmarkSentColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Color of checkmark indication signs of Distributed messages
@@ -526,6 +557,8 @@ SWIFT_CLASS("_TtC7LPInfra8LPConfig")
 @property (nonatomic, strong) UIColor * _Nonnull conversationSeparatorTextColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.conversationSeparatorTextColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Toggle vibration sound when a new message from a remote user received
 @property (nonatomic) BOOL enableVibrationOnMessageFromRemoteUser SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.enableVibrationOnMessageFromRemoteUser' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Enable bubbles overlay when user performing a long press gesture on messaging bubbles.
+@property (nonatomic) BOOL enableBubblesOverlayOnLongPress SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.enableBubblesOverlayOnLongPress' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Scroll to bottom button background color of the whole button
 @property (nonatomic, strong) UIColor * _Nonnull scrollToBottomButtonBackgroundColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.scrollToBottomButtonBackgroundColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Scroll to bottom button text color of the last unread message preview
@@ -733,6 +766,34 @@ SWIFT_CLASS("_TtC7LPInfra8LPConfig")
 @property (nonatomic, strong) UIColor * _Nonnull secureFormBubbleFillFormButtonBackgroundColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.secureFormBubbleFillFormButtonBackgroundColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Secure form bubble form image tint color
 @property (nonatomic, strong) UIColor * _Nonnull secureFormBubbleFormImageTintColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.secureFormBubbleFormImageTintColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Secure form custom font name to be used while user filling the secure form. If not set, the default font will be used as Helvetica.
+@property (nonatomic, copy) NSString * _Nonnull secureFormCustomFontName SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.secureFormCustomFontName' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Secure form flag to hiding the secure form logo in the top of the form.
+@property (nonatomic) BOOL secureFormHideLogo SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.secureFormHideLogo' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Secure form loading indicator color while loading form before opening.
+@property (nonatomic, strong) UIColor * _Nonnull secureFormBubbleLoadingIndicatorColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.secureFormBubbleLoadingIndicatorColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Structured Content bubble border width in pixels
+@property (nonatomic) double structuredContentBubbleBorderWidth SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.structuredContentBubbleBorderWidth' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Structured Content bubble border color
+@property (nonatomic, strong) UIColor * _Nonnull structuredContentBubbleBorderColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.structuredContentBubbleBorderColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Structured Content Latitude Delta Span. Used to determine which area of the map to focus. If you set this attribute, you must set structuredContentMapLongitudeDeltaSpan as well. This parameter is used to create an MKCoordinateSpan.
+/// For more info: https://developer.apple.com/documentation/mapkit/mkcoordinatespan
+@property (nonatomic) double structuredContentMapLatitudeDeltaDeltaSpan SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.structuredContentMapLatitudeDeltaDeltaSpan' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Structured Content Longitude Delta Span. Used to determine which area of the map to focus. If you set this attribute, you must set structuredContentMapLatitudeDeltaDeltaSpan as well. This parameter is used to create an MKCoordinateSpan.
+/// For more info: https://developer.apple.com/documentation/mapkit/mkcoordinatespan
+@property (nonatomic) double structuredContentMapLongitudeDeltaSpan SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.structuredContentMapLongitudeDeltaSpan' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Enable or Disable toggle for Structured Content feature in conversations
+@property (nonatomic) BOOL enableStrucutredContent SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.enableStrucutredContent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Connection status toast (connecting) background color
+/// Hex color can include alpha factor (two last digits)
+@property (nonatomic, strong) UIColor * _Nonnull connectionStatusConnectingBackgroundColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.connectionStatusConnectingBackgroundColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Connection status toast (connecting) text color
+@property (nonatomic, strong) UIColor * _Nonnull connectionStatusConnectingTextColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.connectionStatusConnectingTextColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Connection status toast (failed to connect) background color
+/// Hex color can include alpha factor (two last digits)
+@property (nonatomic, strong) UIColor * _Nonnull connectionStatusFailedToConnectBackgroundColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.connectionStatusFailedToConnectBackgroundColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Connection status toast (failed to connect) text color
+@property (nonatomic, strong) UIColor * _Nonnull connectionStatusFailedToConnectTextColor SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.connectionStatusFailedToConnectTextColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPConfig * _Nonnull defaultConfiguration SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.defaultConfiguration' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
 + (LPConfig * _Nonnull)defaultConfiguration SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'LPConfig.defaultConfiguration' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -814,51 +875,29 @@ SWIFT_CLASS("_TtC7LPInfra20LPConversationEntity")
 @property (nonatomic, readonly) BOOL canShowCSAT SWIFT_DEPRECATED_OBJC("Swift property 'LPConversationEntity.canShowCSAT' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
+@class UIViewController;
+
+SWIFT_CLASS("_TtC7LPInfra24LPConversationViewParams")
+@interface LPConversationViewParams : NSObject
+@property (nonatomic, strong) id <ConversationParamProtocol> _Nonnull conversationQuery SWIFT_DEPRECATED_OBJC("Swift property 'LPConversationViewParams.conversationQuery' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) UIViewController * _Nullable containerViewController SWIFT_DEPRECATED_OBJC("Swift property 'LPConversationViewParams.containerViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) BOOL isViewOnly SWIFT_DEPRECATED_OBJC("Swift property 'LPConversationViewParams.isViewOnly' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)initWithConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery containerViewController:(UIViewController * _Nullable)containerViewController isViewOnly:(BOOL)isViewOnly OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'LPConversationViewParams.init(conversationQuery:containerViewController:isViewOnly:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
 
 SWIFT_CLASS("_TtC7LPInfra19LPCustomBoardEntity")
 @interface LPCustomBoardEntity : NSManagedObject
 @property (nonatomic, copy) NSString * _Nonnull uid;
-@property (nonatomic, strong) NSOrderedSet * _Nonnull customItems;
+@property (nonatomic, strong) NSOrderedSet * _Nonnull linkPreviewItems;
 @property (nonatomic, strong) LPMessageEntity * _Nonnull ownerMessage;
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-@interface LPCustomBoardEntity (SWIFT_EXTENSION(LPInfra))
-/// Calculates the height of the board by summarizing the heights of
-/// the customItems on that board
-@property (nonatomic, readonly) CGFloat height SWIFT_DEPRECATED_OBJC("Swift property 'LPCustomBoardEntity.height' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@end
 
 @class NSError;
-
-SWIFT_CLASS("_TtC7LPInfra18LPCustomItemEntity")
-@interface LPCustomItemEntity : NSManagedObject
-@property (nonatomic, copy) NSString * _Nonnull uid;
-@property (nonatomic, copy) NSString * _Nonnull type;
-@property (nonatomic, copy) NSString * _Nonnull url;
-@property (nonatomic, copy) NSString * _Nullable captionTitle;
-@property (nonatomic, copy) NSString * _Nullable captionDescription;
-@property (nonatomic, copy) NSString * _Nullable captionSiteName;
-@property (nonatomic, copy) NSString * _Nullable relativeImagePath;
-@property (nonatomic, copy) NSString * _Nullable imageURL;
-@property (nonatomic, copy) NSString * _Nullable imageState;
-@property (nonatomic, strong) LPCustomBoardEntity * _Nonnull ownerCustomBoard;
-@property (nonatomic, copy) void (^ _Nullable imageDownloadCompleted)(UIImage * _Nullable) SWIFT_DEPRECATED_OBJC("Swift property 'LPCustomItemEntity.imageDownloadCompleted' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) void (^ _Nullable imageDownloadFailed)(NSError * _Nonnull) SWIFT_DEPRECATED_OBJC("Swift property 'LPCustomItemEntity.imageDownloadFailed' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface LPCustomItemEntity (SWIFT_EXTENSION(LPInfra))
-- (void)setImageWithImage:(UIImage * _Nullable)image relativePath:(NSString * _Nonnull)relativePath SWIFT_DEPRECATED_OBJC("Swift method 'LPCustomItemEntity.setImage(image:relativePath:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-/// Get custom image. First look for an image from RAM, then look for an image from DISK, lastely, download image from url
-/// \param completion completion with optional UIImage
-///
-- (void)getImageWithCompletion:(void (^ _Nonnull)(UIImage * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPCustomItemEntity.getImage(completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (UIImage * _Nullable)getImageFromCache SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPCustomItemEntity.getImageFromCache()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@end
-
 
 SWIFT_PROTOCOL("_TtP7LPInfra24LPDataManagerSDKDelegate_")
 @protocol LPDataManagerSDKDelegate
@@ -952,7 +991,7 @@ SWIFT_CLASS("_TtC7LPInfra13LPInfraFacade")
 + (void)removeSockets SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.removeSockets()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 + (void)saveData:(NSManagedObjectContext * _Nullable)givenContext SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.saveData(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 + (void)saveContext SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.saveContext()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (NSManagedObjectContext * _Nonnull)getContext SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.getContext()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (NSManagedObjectContext * _Nullable)getContext SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.getContext()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 + (void)saveDataWithGetContextFrom:(NSManagedObject * _Nullable)obj SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.saveData(getContextFrom:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 + (BOOL)deleteManagedObject:(NSManagedObject * _Nonnull)object context:(NSManagedObjectContext * _Nullable)givenContext SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.deleteManagedObject(_:context:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 + (void)resetDatabaseWithCompletion:(void (^ _Nonnull)(BOOL))completion SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.resetDatabase(completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -1071,8 +1110,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nu
 + (void)agentDetailsDidFetchWithUser:(LPUserEntity * _Nullable)user SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.agentDetailsDidFetch(user:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isNetworkReachable;)
 + (BOOL)isNetworkReachable SWIFT_WARN_UNUSED_RESULT;
-/// Load image from URL from a server or from the images cache manager
-+ (void)loadImageFromURLWithImageUrl:(NSString * _Nullable)imageUrl completion:(void (^ _Nonnull)(UIImage * _Nullable, BOOL))completion failure:(void (^ _Nullable)(void))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.loadImageFromURL(imageUrl:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Set image for URL in images cache
 + (void)setImageByURL:(UIImage * _Nonnull)image url:(NSString * _Nonnull)url SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.setImageByURL(_:url:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Get image by URL from images cache
@@ -1177,7 +1214,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isNetworkReacha
 /// Get the assigned agent of the recent open/closed conversation if exists.
 + (LPUserEntity * _Nullable)getAssignedAgent:(id <ConversationParamProtocol> _Nonnull)query SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.getAssignedAgent(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Returns the message boards if exist.
-/// The message boards are the structured content data structures
+/// The message boards are the link preview data structures
 /// built from the html meta data of the source url
 + (void)getMessageBoardsWithUrl:(NSURL * _Nonnull)url completion:(void (^ _Nonnull)(NSArray<LPCustomBoardEntity *> * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nullable))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPInfraFacade.getMessageBoards(url:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Delete preview images directory from disk and all its content
@@ -1214,35 +1251,64 @@ typedef SWIFT_ENUM(NSInteger, LPLanguage) {
   LPLanguageSr = 9,
   LPLanguageDe = 10,
   LPLanguageEl = 11,
-  LPLanguageHe_IL = 12,
-  LPLanguageEs = 13,
-  LPLanguageEt = 14,
-  LPLanguageFi = 15,
-  LPLanguageHi = 16,
-  LPLanguageHr = 17,
-  LPLanguageHu = 18,
-  LPLanguageIt = 19,
-  LPLanguageJa = 20,
-  LPLanguageKo = 21,
-  LPLanguageLt = 22,
-  LPLanguageLv = 23,
-  LPLanguageMk = 24,
-  LPLanguageNb = 25,
-  LPLanguageNl = 26,
-  LPLanguagePl = 27,
-  LPLanguageRo = 28,
-  LPLanguageRu = 29,
-  LPLanguageSl = 30,
-  LPLanguageSk = 31,
-  LPLanguageSv = 32,
-  LPLanguageTh = 33,
-  LPLanguageTr = 34,
-  LPLanguageUk = 35,
-  LPLanguageVi = 36,
-  LPLanguageZh = 37,
-  LPLanguageZh_Hans = 38,
-  LPLanguageZh_Hant_hk = 39,
+  LPLanguageHe = 12,
+  LPLanguageHe_IL = 13,
+  LPLanguageEs = 14,
+  LPLanguageEt = 15,
+  LPLanguageFi = 16,
+  LPLanguageHi = 17,
+  LPLanguageHr = 18,
+  LPLanguageHu = 19,
+  LPLanguageIt = 20,
+  LPLanguageJa = 21,
+  LPLanguageKo = 22,
+  LPLanguageLt = 23,
+  LPLanguageLv = 24,
+  LPLanguageMk = 25,
+  LPLanguageNb = 26,
+  LPLanguageNl = 27,
+  LPLanguagePl = 28,
+  LPLanguageRo = 29,
+  LPLanguageRu = 30,
+  LPLanguageSl = 31,
+  LPLanguageSk = 32,
+  LPLanguageSv = 33,
+  LPLanguageTh = 34,
+  LPLanguageTr = 35,
+  LPLanguageUk = 36,
+  LPLanguageVi = 37,
+  LPLanguageZh = 38,
+  LPLanguageZh_Hans = 39,
+  LPLanguageZh_Hant_hk = 40,
 };
+
+
+SWIFT_CLASS("_TtC7LPInfra19LPLinkPreviewEntity")
+@interface LPLinkPreviewEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull uid;
+@property (nonatomic, copy) NSString * _Nonnull type;
+@property (nonatomic, copy) NSString * _Nonnull url;
+@property (nonatomic, copy) NSString * _Nullable captionTitle;
+@property (nonatomic, copy) NSString * _Nullable captionDescription;
+@property (nonatomic, copy) NSString * _Nullable captionSiteName;
+@property (nonatomic, copy) NSString * _Nullable relativeImagePath;
+@property (nonatomic, copy) NSString * _Nullable imageURL;
+@property (nonatomic, copy) NSString * _Nullable imageState;
+@property (nonatomic, strong) LPCustomBoardEntity * _Nonnull ownerCustomBoard;
+@property (nonatomic, copy) void (^ _Nullable imageDownloadCompleted)(UIImage * _Nullable) SWIFT_DEPRECATED_OBJC("Swift property 'LPLinkPreviewEntity.imageDownloadCompleted' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) void (^ _Nullable imageDownloadFailed)(NSError * _Nonnull) SWIFT_DEPRECATED_OBJC("Swift property 'LPLinkPreviewEntity.imageDownloadFailed' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface LPLinkPreviewEntity (SWIFT_EXTENSION(LPInfra))
+- (void)setImageWithImage:(UIImage * _Nullable)image relativePath:(NSString * _Nonnull)relativePath SWIFT_DEPRECATED_OBJC("Swift method 'LPLinkPreviewEntity.setImage(image:relativePath:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Get custom image. First look for an image from RAM, then look for an image from DISK, lastely, download image from url
+/// \param completion completion with optional UIImage
+///
+- (void)getImageWithCompletion:(void (^ _Nonnull)(UIImage * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPLinkPreviewEntity.getImage(completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (UIImage * _Nullable)getImageFromCache SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPLinkPreviewEntity.getImageFromCache()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
 
 
 SWIFT_CLASS("_TtC7LPInfra5LPLog")
@@ -1254,6 +1320,7 @@ SWIFT_CLASS("_TtC7LPInfra5LPLog")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+@class StructuredContentItemContainer;
 
 SWIFT_CLASS("_TtC7LPInfra15LPMessageEntity")
 @interface LPMessageEntity : NSManagedObject
@@ -1269,7 +1336,8 @@ SWIFT_CLASS("_TtC7LPInfra15LPMessageEntity")
 @property (nonatomic, strong) LPFormEntity * _Nullable form;
 @property (nonatomic, copy) NSString * _Nullable eventId;
 @property (nonatomic, strong) NSOrderedSet * _Nullable customBoards;
-@property (nonatomic, copy) NSString * _Nullable structureContentState;
+@property (nonatomic, copy) NSString * _Nullable linkPreviewState;
+@property (nonatomic, strong) StructuredContentItemContainer * _Nullable structuredContentItemContainer;
 @property (nonatomic, copy) void (^ _Nullable boardsBuildCompleted)(NSArray<LPCustomBoardEntity *> * _Nonnull) SWIFT_DEPRECATED_OBJC("Swift property 'LPMessageEntity.boardsBuildCompleted' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) void (^ _Nullable boardsBuildFailed)(NSError * _Nonnull) SWIFT_DEPRECATED_OBJC("Swift property 'LPMessageEntity.boardsBuildFailed' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// time when UI requested to show ‘Sending’ text
@@ -1287,6 +1355,7 @@ SWIFT_CLASS("_TtC7LPInfra15LPMessageEntity")
 @property (nonatomic, readonly) BOOL isSystemMessage SWIFT_DEPRECATED_OBJC("Swift property 'LPMessageEntity.isSystemMessage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) BOOL isRemoteMessage SWIFT_DEPRECATED_OBJC("Swift property 'LPMessageEntity.isRemoteMessage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) BOOL isUserMessage SWIFT_DEPRECATED_OBJC("Swift property 'LPMessageEntity.isUserMessage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) BOOL isLinkPreview SWIFT_DEPRECATED_OBJC("Swift property 'LPMessageEntity.isLinkPreview' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) BOOL isStructuredContent SWIFT_DEPRECATED_OBJC("Swift property 'LPMessageEntity.isStructuredContent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 + (NSString * _Nonnull)buildUID:(NSString * _Nonnull)convUID sequence:(NSInteger)sequence SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessageEntity.buildUID(_:sequence:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 + (NSPredicate * _Nonnull)byDate:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPMessageEntity.byDate(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -1323,6 +1392,22 @@ SWIFT_CLASS("_TtC7LPInfra11LPOperation")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+typedef SWIFT_ENUM(NSInteger, LPPermissionTypes) {
+  LPPermissionTypesLocation = 0,
+  LPPermissionTypesContacts = 1,
+  LPPermissionTypesCalendars = 2,
+  LPPermissionTypesReminders = 3,
+  LPPermissionTypesPhotos = 4,
+  LPPermissionTypesBluetooth = 5,
+  LPPermissionTypesMicrophone = 6,
+  LPPermissionTypesSpeechRecognition = 7,
+  LPPermissionTypesCamera = 8,
+  LPPermissionTypesHealth = 9,
+  LPPermissionTypesHomekit = 10,
+  LPPermissionTypesMediaLibrary = 11,
+  LPPermissionTypesMotionAndFitness = 12,
+};
+
 @class NSBundle;
 
 SWIFT_CLASS("_TtC7LPInfra12LPSDKManager")
@@ -1354,7 +1439,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPSDKManager
 ///
 /// \param completion a boolean in a completion block. The SDK is applicable if the current version is greater or euqal to the fetched value
 ///
-+ (void)isVersionApplicableWithBrandID:(NSString * _Nonnull)brandID configurationKey:(NSString * _Nullable)configurationKey useCacheIfExists:(BOOL)useCacheIfExists completion:(void (^ _Nonnull)(BOOL, BOOL))completion SWIFT_DEPRECATED_OBJC("Swift method 'LPSDKManager.isVersionApplicable(brandID:configurationKey:useCacheIfExists:completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)isVersionApplicableWithBrandID:(NSString * _Nonnull)brandID configurationKey:(NSString * _Nullable)configurationKey useCacheIfExists:(BOOL)useCacheIfExists completion:(void (^ _Nonnull)(BOOL, BOOL))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure SWIFT_DEPRECATED_OBJC("Swift method 'LPSDKManager.isVersionApplicable(brandID:configurationKey:useCacheIfExists:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Determines if a feature is enabled for account
 /// <ol>
 ///   <li>
@@ -1599,6 +1684,254 @@ SWIFT_CLASS("_TtC7LPInfra25SecureFormReadOTKResponse")
 - (nonnull instancetype)initWithJsonDict:(NSDictionary<NSString *, id> * _Nonnull)jsonDict OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSCoder;
+
+SWIFT_CLASS("_TtC7LPInfra23StructuredContentAction")
+@interface StructuredContentAction : NSObject <NSCoding>
+@property (nonatomic, copy) NSString * _Nonnull ID SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentAction.ID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nonnull type SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentAction.type' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the base Action, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the base Action, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+@class StructuredContentClick;
+@class StructuredContentStyle;
+
+SWIFT_CLASS("_TtC7LPInfra21StructuredContentItem")
+@interface StructuredContentItem : NSObject <NSCoding>
+@property (nonatomic, copy) NSString * _Nonnull ID SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItem.ID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nonnull type SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItem.type' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable tooltip SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItem.tooltip' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) StructuredContentClick * _Nullable click SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItem.click' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) StructuredContentStyle * _Nullable style SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItem.style' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) BOOL requiresBorder SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItem.requiresBorder' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSString * _Nonnull structuredContentAccessibilityLabel SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItem.structuredContentAccessibilityLabel' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the base content item, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the base content item, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra27StructuredContentButtonItem")
+@interface StructuredContentButtonItem : StructuredContentItem
+@property (nonatomic, copy) NSString * _Nullable title SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentButtonItem.title' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the button item, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the text item, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra22StructuredContentClick")
+@interface StructuredContentClick : NSObject <NSCoding>
+@property (nonatomic, copy) NSString * _Nonnull ID SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentClick.ID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSArray<NSDictionary<NSString *, id> *> * _Nullable metadata SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentClick.metadata' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSArray<StructuredContentAction *> * _Nullable actions SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentClick.actions' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the base Action, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the base Click, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra26StructuredContentImageItem")
+@interface StructuredContentImageItem : StructuredContentItem
+@property (nonatomic, strong) UIImage * _Nullable image SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentImageItem.image' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nonnull imageURL SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentImageItem.imageURL' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable relativeImagePath SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentImageItem.relativeImagePath' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable imageState SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentImageItem.imageState' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable imageCaption SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentImageItem.imageCaption' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) void (^ _Nullable imageDownloadCompleted)(UIImage * _Nullable) SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentImageItem.imageDownloadCompleted' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) void (^ _Nullable imageDownloadFailed)(NSError * _Nonnull) SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentImageItem.imageDownloadFailed' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the image item, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the image item, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+
+@interface StructuredContentItem (SWIFT_EXTENSION(LPInfra))
+- (void)iterateThroughWithIterationStep:(SWIFT_NOESCAPE void (^ _Nonnull)(StructuredContentItem * _Nonnull))iterationStep SWIFT_DEPRECATED_OBJC("Swift method 'StructuredContentItem.iterateThrough(iterationStep:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra30StructuredContentItemContainer")
+@interface StructuredContentItemContainer : NSObject <NSCoding>
+@property (nonatomic, copy) NSString * _Nonnull ID SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItemContainer.ID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) StructuredContentItem * _Nullable item SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentItemContainer.item' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)initWithStructuredContentItem:(StructuredContentItem * _Nonnull)structuredContentItem OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'StructuredContentItemContainer.init(structuredContentItem:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the StructuredContentItamsContainer, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the StructuredContentItamsContainer, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra27StructuredContentLayoutItem")
+@interface StructuredContentLayoutItem : StructuredContentItem
+@property (nonatomic, copy) NSArray<StructuredContentItem *> * _Nullable itemsArray SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentLayoutItem.itemsArray' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the horizontal item, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)decoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the horizontal item, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra27StructuredContentLinkAction")
+@interface StructuredContentLinkAction : StructuredContentAction
+@property (nonatomic, copy) NSString * _Nonnull uri SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentLinkAction.uri' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable deepLinkUri SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentLinkAction.deepLinkUri' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the Link action, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the Link action, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra32StructuredContentLinkPreviewItem")
+@interface StructuredContentLinkPreviewItem : StructuredContentItem
+@property (nonatomic, copy) NSString * _Nonnull url SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentLinkPreviewItem.url' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable title SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentLinkPreviewItem.title' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the Link item, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the Link item, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra24StructuredContentMapItem")
+@interface StructuredContentMapItem : StructuredContentItem
+@property (nonatomic) CLLocationDegrees latitude SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentMapItem.latitude' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) CLLocationDegrees longitude SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentMapItem.longitude' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) UIImage * _Nullable snapShotImage SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentMapItem.snapShotImage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the map item, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the map item, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra31StructuredContentNavigateAction")
+@interface StructuredContentNavigateAction : StructuredContentAction
+@property (nonatomic) CLLocationDegrees latitude SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentNavigateAction.latitude' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) CLLocationDegrees longitude SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentNavigateAction.longitude' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the Navigate action, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the Navigate action, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra34StructuredContentPublishTextAction")
+@interface StructuredContentPublishTextAction : StructuredContentAction
+@property (nonatomic, copy) NSString * _Nonnull text SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentPublishTextAction.text' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the publishText action, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the Link action, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra22StructuredContentStyle")
+@interface StructuredContentStyle : NSObject <NSCoding>
+@property (nonatomic, strong) UIColor * _Nullable color SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentStyle.color' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) UIColor * _Nullable backgroundColor SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentStyle.backgroundColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSString * _Nullable size SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentStyle.size' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the base Style, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the base Style, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra25StructuredContentTextItem")
+@interface StructuredContentTextItem : StructuredContentItem
+@property (nonatomic, copy) NSString * _Nullable text SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentTextItem.text' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the text item, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the text item, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
+
+SWIFT_CLASS("_TtC7LPInfra28StructuredContentWebviewItem")
+@interface StructuredContentWebviewItem : StructuredContentItem
+@property (nonatomic, copy) NSString * _Nonnull url SWIFT_DEPRECATED_OBJC("Swift property 'StructuredContentWebviewItem.url' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Decodes the Webview item, stored in core data
+/// \param aCoder aCoder
+///
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+/// Encodes the Webview item, will be used for storing in core data
+/// \param aCoder aCoder
+///
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+@end
+
 
 SWIFT_CLASS("_TtC7LPInfra22SubscribeConversations")
 @interface SubscribeConversations : GeneralResponse
@@ -1621,7 +1954,6 @@ SWIFT_CLASS("_TtC7LPInfra8TTRModel")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
-@class NSCoder;
 
 SWIFT_CLASS("_TtC7LPInfra5Toast")
 @interface Toast : UIView
@@ -1630,12 +1962,15 @@ SWIFT_CLASS("_TtC7LPInfra5Toast")
 @property (nonatomic, copy) void (^ _Nullable didDismiss)(void) SWIFT_DEPRECATED_OBJC("Swift property 'Toast.didDismiss' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) void (^ _Nullable didTap)(void) SWIFT_DEPRECATED_OBJC("Swift property 'Toast.didTap' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)awakeFromNib;
+/// Changes text of toast (even on runtime when the toast is showing)
+/// \param text text to show
+///
+- (void)changeTextWithText:(NSString * _Nonnull)text SWIFT_DEPRECATED_OBJC("Swift method 'Toast.changeText(text:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIViewController;
 
 SWIFT_CLASS("_TtC7LPInfra7Toaster")
 @interface Toaster : UIView
