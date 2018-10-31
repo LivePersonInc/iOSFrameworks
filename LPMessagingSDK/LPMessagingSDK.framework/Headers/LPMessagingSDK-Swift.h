@@ -376,7 +376,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 /// local masked message, nil if failed
 + (LPMessageEntity * _Nullable)createMessageMaskedLocalMessage:(LPConversationEntity * _Nonnull)conversation isRealTimeMasking:(BOOL)isRealTimeMasking SWIFT_WARN_UNUSED_RESULT;
 /// Create welcome local system message for conversation
-+ (LPMessageEntity * _Nullable)createWelcomeLocalMessage:(LPDialogEntity * _Nonnull)dialog SWIFT_WARN_UNUSED_RESULT;
++ (LPMessageEntity * _Nullable)createWelcomeLocalMessage:(LPDialogEntity * _Nonnull)dialog overrideTime:(NSDate * _Nonnull)overrideTime SWIFT_WARN_UNUSED_RESULT;
 /// Upload file from upload info object
 /// \param uploadInfo Includes all necessary info about required file to upload
 ///
@@ -944,21 +944,21 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK17UIAdapterDelegate_")
 
 
 @interface UIView (SWIFT_EXTENSION(LPMessagingSDK))
-- (void)shake SWIFT_DEPRECATED_OBJC("Swift method 'UIView.shake()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)lpShake SWIFT_DEPRECATED_OBJC("Swift method 'UIView.lpShake()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Rotate UIImageView 360
 /// \param imageView UIImageView to rotate
 ///
 /// \param completion completionBlock which is invoked once the rotation finished. If it is neccessary to continue rotation, just call this method again from inside the block
 ///
-+ (void)animateRotationFor:(UIImageView * _Nullable)imageView withDuration:(NSTimeInterval)duration completion:(void (^ _Nonnull)(void))completion SWIFT_DEPRECATED_OBJC("Swift method 'UIView.animateRotation(for:withDuration:completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)lpAnimateRotationFor:(UIImageView * _Nullable)imageView withDuration:(NSTimeInterval)duration completion:(void (^ _Nonnull)(void))completion SWIFT_DEPRECATED_OBJC("Swift method 'UIView.lpAnimateRotation(for:withDuration:completion:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Rotates a view
 /// \param duration The amount of time to finish 1 rotation
 ///
 /// \param repeatCount Number of times to rotate (Float.infinity for forever)
 ///
-- (void)rotateWithDuration:(double)duration repeatCount:(float)repeatCount SWIFT_DEPRECATED_OBJC("Swift method 'UIView.rotate(duration:repeatCount:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)lpRotateWithDuration:(double)duration repeatCount:(float)repeatCount SWIFT_DEPRECATED_OBJC("Swift method 'UIView.lpRotate(duration:repeatCount:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// Stop rotation if image by removing all animations
-- (void)stopRotate SWIFT_DEPRECATED_OBJC("Swift method 'UIView.stopRotate()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)lpStopRotate SWIFT_DEPRECATED_OBJC("Swift method 'UIView.lpStopRotate()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 

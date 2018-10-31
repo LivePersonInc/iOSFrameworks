@@ -247,6 +247,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMonitoring
 
 SWIFT_CLASS("_TtC12LPMonitoring23LPMonitoringDataManager")
 @interface LPMonitoringDataManager : NSObject <GeneralManagerProtocol>
+@property (nonatomic, copy) NSArray<LPMonitoringIdentity *> * _Nonnull monitoringIdentities SWIFT_DEPRECATED_OBJC("Swift property 'LPMonitoringDataManager.monitoringIdentities' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) LPMonitoringParams * _Nullable monitoringParam SWIFT_DEPRECATED_OBJC("Swift property 'LPMonitoringDataManager.monitoringParam' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) BOOL isInitialized SWIFT_DEPRECATED_OBJC("Swift property 'LPMonitoringDataManager.isInitialized' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMonitoringDataManager * _Nonnull instance SWIFT_DEPRECATED_OBJC("Swift property 'LPMonitoringDataManager.instance' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
 + (LPMonitoringDataManager * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'LPMonitoringDataManager.instance' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -258,6 +260,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMonitoring
 /// \param appInstallID host app installID
 ///
 - (void)initializeWithAccountId:(NSString * _Nonnull)accountId monitoringInitParms:(LPMonitoringInitParams * _Nonnull)monitoringInitParms SWIFT_DEPRECATED_OBJC("Swift method 'LPMonitoringDataManager.initialize(accountId:monitoringInitParms:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)clearEngagementMonitoring SWIFT_DEPRECATED_OBJC("Swift method 'LPMonitoringDataManager.clearEngagementMonitoring()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)clearManager;
 @end
 

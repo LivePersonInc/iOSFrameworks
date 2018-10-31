@@ -292,7 +292,7 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 + (void)disconnectSocket:(id <ConversationParamProtocol> _Nonnull)conversationQuery;
 /// Clear history of all closed conversations and their messages from the database.
 /// This method is allowed only if there is no active/open conversation.
-+ (BOOL)clearHistory:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)clearHistory:(id <ConversationParamProtocol> _Nonnull)conversationQuery isClearOpenConversation:(BOOL)isClearOpenConversation SWIFT_WARN_UNUSED_RESULT;
 /// Delete all conversations and their messages from the database, which older than X months.
 /// The number of months allowed is defined in LPConfig with attribute: deleteClosedConversationOlderThanMonths
 + (void)deleteOldConversations;
@@ -373,7 +373,7 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 /// local masked message, nil if failed
 + (LPMessageEntity * _Nullable)createMessageMaskedLocalMessage:(LPDialogEntity * _Nonnull)dialog isRealTimeMasking:(BOOL)isRealTimeMasking SWIFT_WARN_UNUSED_RESULT;
 /// Creates welcome local system message for dialog
-+ (LPMessageEntity * _Nullable)createWelcomeLocalMessage:(LPDialogEntity * _Nonnull)dialog SWIFT_WARN_UNUSED_RESULT;
++ (LPMessageEntity * _Nullable)createWelcomeLocalMessage:(LPDialogEntity * _Nonnull)dialog overrideTime:(NSDate * _Nonnull)overrideTime SWIFT_WARN_UNUSED_RESULT;
 /// Get client properties to be sent to AMS using predefiend AMS parameters.
 /// This method is used for sending information to AMS
 + (NSString * _Nonnull)clientPropertiesString SWIFT_WARN_UNUSED_RESULT;
@@ -457,6 +457,7 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 /// Clear all singleton managers with their properties from memory.
 /// This method will release any data objects and data structures.
 + (void)clearManagers;
++ (void)clearSubscriptionsManager;
 /// If we have the last quick reply item saved in the RAM:
 /// We’ll return it from the RAM
 /// If not, we’ll take it from the LPUserDefaults
