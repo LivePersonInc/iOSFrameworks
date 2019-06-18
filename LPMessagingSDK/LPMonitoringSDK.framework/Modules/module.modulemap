@@ -1,0 +1,11 @@
+framework module LPMonitoringSDK {
+  umbrella header "LPMonitoringSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module LPMonitoringSDK.Swift {
+    header "LPMonitoringSDK-Swift.h"
+    requires objc
+}
