@@ -454,8 +454,12 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 + (void)uploadFileWithFile:(LPFileEntity * _Nonnull)file uploadRelativePath:(NSString * _Nonnull)uploadRelativePath tempURLSig:(NSString * _Nonnull)tempURLSig tempURLExpiry:(NSString * _Nonnull)tempURLExpiry completion:(void (^ _Nonnull)(LPFileEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Get full photo image from disk using file path.
 /// If file path is invalid, an error will be invoked.
-/// If file does not exist, function will return nil
+/// If file does not exist on disk, function will return nil for image.
 + (void)getPhotoFromFileWithFile:(LPFileEntity * _Nonnull)file completion:(void (^ _Nonnull)(UIImage * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
+/// Ensure that file has been saved to disk, and return that entity.
+/// If file path is invalid, an error will be invoked.
+/// If file has does not exist on disk, function will return nil for fileEntity
++ (void)getFileFromFileEntityWithFileEntity:(LPFileEntity * _Nonnull)fileEntity completion:(void (^ _Nonnull)(LPFileEntity * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Get full thumbnail image from disk using file path.
 /// If image fails to created or file path is invalid, an error will be invoked.
 + (void)getThumbnailFromFileWithFile:(LPFileEntity * _Nonnull)file completion:(void (^ _Nonnull)(UIImage * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
@@ -1512,8 +1516,12 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 + (void)uploadFileWithFile:(LPFileEntity * _Nonnull)file uploadRelativePath:(NSString * _Nonnull)uploadRelativePath tempURLSig:(NSString * _Nonnull)tempURLSig tempURLExpiry:(NSString * _Nonnull)tempURLExpiry completion:(void (^ _Nonnull)(LPFileEntity * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Get full photo image from disk using file path.
 /// If file path is invalid, an error will be invoked.
-/// If file does not exist, function will return nil
+/// If file does not exist on disk, function will return nil for image.
 + (void)getPhotoFromFileWithFile:(LPFileEntity * _Nonnull)file completion:(void (^ _Nonnull)(UIImage * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
+/// Ensure that file has been saved to disk, and return that entity.
+/// If file path is invalid, an error will be invoked.
+/// If file has does not exist on disk, function will return nil for fileEntity
++ (void)getFileFromFileEntityWithFileEntity:(LPFileEntity * _Nonnull)fileEntity completion:(void (^ _Nonnull)(LPFileEntity * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 /// Get full thumbnail image from disk using file path.
 /// If image fails to created or file path is invalid, an error will be invoked.
 + (void)getThumbnailFromFileWithFile:(LPFileEntity * _Nonnull)file completion:(void (^ _Nonnull)(UIImage * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
