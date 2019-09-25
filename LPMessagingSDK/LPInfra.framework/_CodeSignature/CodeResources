@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/LPInfra-Swift.h</key>
 		<data>
-		37T/H+D+0sLKnK8TpYWjAlxevEI=
+		lQS3PnMhgcTcLDDRGErP3F9k/4I=
 		</data>
 		<key>Headers/LPInfra.h</key>
 		<data>
@@ -14,47 +14,79 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		RmfV83mlXbil6+3792RRwLjgIrE=
+		UDzC+oho/ht0KHcDCuGDfbQyzCY=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/arm.swiftdoc</key>
 		<data>
-		aUVD7JASG6+T7/pQGBvKGlfFdqA=
+		+4mdhRxteRVbgIJQHocVlKqgPoc=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/arm.swiftmodule</key>
 		<data>
-		I36E6TNeQNJuuEgilRVg1SWwHrc=
+		jlI00MKLWtdMPM/u5ysGvZgGD4k=
+		</data>
+		<key>Modules/LPInfra.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<data>
+		UDprglGaN0SK8/QEHl4Tij1rOYU=
+		</data>
+		<key>Modules/LPInfra.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<data>
+		EtzE+HmmiOZiTFVQ2n04/Wt8YfE=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		UMl4bD3Y65Hs/VaBpFfswT0NL6Y=
+		UDprglGaN0SK8/QEHl4Tij1rOYU=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		9n9EI4hwDObD8G7fIK6bj8xMJqY=
+		EtzE+HmmiOZiTFVQ2n04/Wt8YfE=
+		</data>
+		<key>Modules/LPInfra.swiftmodule/armv7-apple-ios.swiftdoc</key>
+		<data>
+		+4mdhRxteRVbgIJQHocVlKqgPoc=
+		</data>
+		<key>Modules/LPInfra.swiftmodule/armv7-apple-ios.swiftmodule</key>
+		<data>
+		jlI00MKLWtdMPM/u5ysGvZgGD4k=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/armv7.swiftdoc</key>
 		<data>
-		aUVD7JASG6+T7/pQGBvKGlfFdqA=
+		+4mdhRxteRVbgIJQHocVlKqgPoc=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		I36E6TNeQNJuuEgilRVg1SWwHrc=
+		jlI00MKLWtdMPM/u5ysGvZgGD4k=
+		</data>
+		<key>Modules/LPInfra.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
+		<data>
+		YQDDgmiG3T3bdAkJdfoLfJTPGMA=
+		</data>
+		<key>Modules/LPInfra.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
+		<data>
+		plIehyjkuAxat3fcx3izrRA04AU=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/i386.swiftdoc</key>
 		<data>
-		kP5AGBcTOfR2kQr5UoXin83n5ds=
+		YQDDgmiG3T3bdAkJdfoLfJTPGMA=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/i386.swiftmodule</key>
 		<data>
-		wt20WdrR36SCyY1cBFmnS5hfezw=
+		plIehyjkuAxat3fcx3izrRA04AU=
+		</data>
+		<key>Modules/LPInfra.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		QdD7aOz+dp7kO4HJTAY3rP3OWrs=
+		</data>
+		<key>Modules/LPInfra.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		REwVtA2Y4DxFR9M2gmFNXdxMEdQ=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		5bVfDDfxKnUxZ00QhvXCJeXanWI=
+		QdD7aOz+dp7kO4HJTAY3rP3OWrs=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		8zBIn4l/PUxvFH5f8QQyhsLp4Yo=
+		REwVtA2Y4DxFR9M2gmFNXdxMEdQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -175,11 +207,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			37T/H+D+0sLKnK8TpYWjAlxevEI=
+			lQS3PnMhgcTcLDDRGErP3F9k/4I=
 			</data>
 			<key>hash2</key>
 			<data>
-			w8xeSjqp7M8aMgZWnyRrYtt491jYHPKaFRnzwOp1/yc=
+			SnzmJdP+20VJlH2X44tk1NnNdoYvIkpTFtp+HSo3XTA=
 			</data>
 		</dict>
 		<key>Headers/LPInfra.h</key>
@@ -197,110 +229,198 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aUVD7JASG6+T7/pQGBvKGlfFdqA=
+			+4mdhRxteRVbgIJQHocVlKqgPoc=
 			</data>
 			<key>hash2</key>
 			<data>
-			0up3QW6Tyjt++S+QSb2vc8I7PGXqkxMgASZJoNbhj08=
+			a4wUgBsj6aapo0zAF7vL5zsoMf10qZGVTi5EjUUQpls=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			I36E6TNeQNJuuEgilRVg1SWwHrc=
+			jlI00MKLWtdMPM/u5ysGvZgGD4k=
 			</data>
 			<key>hash2</key>
 			<data>
-			AiuTm+VNBBKBMS86Q9h0IKn3yBLNWMMs2YMLvhNSppI=
+			iX0ii9EaeYH8d7TvXPgVgrRYXkGyXMWFBs2Pg3wvDJ4=
+			</data>
+		</dict>
+		<key>Modules/LPInfra.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UDprglGaN0SK8/QEHl4Tij1rOYU=
+			</data>
+			<key>hash2</key>
+			<data>
+			CX6Ih6X0fSyra0Qv0MJWrYJklMIoRGbJZa07Oo+tEXg=
+			</data>
+		</dict>
+		<key>Modules/LPInfra.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EtzE+HmmiOZiTFVQ2n04/Wt8YfE=
+			</data>
+			<key>hash2</key>
+			<data>
+			SbjUs+HKpjfELqz3+/FyoF2Jhpeeo8zqzxXiTlDyzKI=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UMl4bD3Y65Hs/VaBpFfswT0NL6Y=
+			UDprglGaN0SK8/QEHl4Tij1rOYU=
 			</data>
 			<key>hash2</key>
 			<data>
-			kwUdbOpgNcqGllPzu0JNidOI4fLksk1Hbbi4q9oS0nM=
+			CX6Ih6X0fSyra0Qv0MJWrYJklMIoRGbJZa07Oo+tEXg=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9n9EI4hwDObD8G7fIK6bj8xMJqY=
+			EtzE+HmmiOZiTFVQ2n04/Wt8YfE=
 			</data>
 			<key>hash2</key>
 			<data>
-			HZnjvUT91/Qp6s/Ssmfd8p5odkZGAK3m+OV2qAT+zYM=
+			SbjUs+HKpjfELqz3+/FyoF2Jhpeeo8zqzxXiTlDyzKI=
+			</data>
+		</dict>
+		<key>Modules/LPInfra.swiftmodule/armv7-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+4mdhRxteRVbgIJQHocVlKqgPoc=
+			</data>
+			<key>hash2</key>
+			<data>
+			a4wUgBsj6aapo0zAF7vL5zsoMf10qZGVTi5EjUUQpls=
+			</data>
+		</dict>
+		<key>Modules/LPInfra.swiftmodule/armv7-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jlI00MKLWtdMPM/u5ysGvZgGD4k=
+			</data>
+			<key>hash2</key>
+			<data>
+			iX0ii9EaeYH8d7TvXPgVgrRYXkGyXMWFBs2Pg3wvDJ4=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/armv7.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aUVD7JASG6+T7/pQGBvKGlfFdqA=
+			+4mdhRxteRVbgIJQHocVlKqgPoc=
 			</data>
 			<key>hash2</key>
 			<data>
-			0up3QW6Tyjt++S+QSb2vc8I7PGXqkxMgASZJoNbhj08=
+			a4wUgBsj6aapo0zAF7vL5zsoMf10qZGVTi5EjUUQpls=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/armv7.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			I36E6TNeQNJuuEgilRVg1SWwHrc=
+			jlI00MKLWtdMPM/u5ysGvZgGD4k=
 			</data>
 			<key>hash2</key>
 			<data>
-			AiuTm+VNBBKBMS86Q9h0IKn3yBLNWMMs2YMLvhNSppI=
+			iX0ii9EaeYH8d7TvXPgVgrRYXkGyXMWFBs2Pg3wvDJ4=
+			</data>
+		</dict>
+		<key>Modules/LPInfra.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YQDDgmiG3T3bdAkJdfoLfJTPGMA=
+			</data>
+			<key>hash2</key>
+			<data>
+			Bi821WmQFw32smOh3ycp3pexcrukBoMmuA88Z+EpEXU=
+			</data>
+		</dict>
+		<key>Modules/LPInfra.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			plIehyjkuAxat3fcx3izrRA04AU=
+			</data>
+			<key>hash2</key>
+			<data>
+			E5LPX3g6zcPqof1xohpucoMspuPe9BcOVcuIZgly/L0=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/i386.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kP5AGBcTOfR2kQr5UoXin83n5ds=
+			YQDDgmiG3T3bdAkJdfoLfJTPGMA=
 			</data>
 			<key>hash2</key>
 			<data>
-			XmcfLd8RHXzKCbo4OkolR6oXNIVYpaqOE9U+48f/hgo=
+			Bi821WmQFw32smOh3ycp3pexcrukBoMmuA88Z+EpEXU=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wt20WdrR36SCyY1cBFmnS5hfezw=
+			plIehyjkuAxat3fcx3izrRA04AU=
 			</data>
 			<key>hash2</key>
 			<data>
-			8q1fRP1PGlPHDpg92I/Qg6xIGmfdbpp2t5a/BWb7BKg=
+			E5LPX3g6zcPqof1xohpucoMspuPe9BcOVcuIZgly/L0=
+			</data>
+		</dict>
+		<key>Modules/LPInfra.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QdD7aOz+dp7kO4HJTAY3rP3OWrs=
+			</data>
+			<key>hash2</key>
+			<data>
+			Jx7JBg96KDBKcL6SdH/zIOKd6PKcFIXI3ImKJSzQqZg=
+			</data>
+		</dict>
+		<key>Modules/LPInfra.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			REwVtA2Y4DxFR9M2gmFNXdxMEdQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			IVToZnHBoTw4Khn7qRLMgZJA6o1GEnNHlC/WF4mgtXU=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5bVfDDfxKnUxZ00QhvXCJeXanWI=
+			QdD7aOz+dp7kO4HJTAY3rP3OWrs=
 			</data>
 			<key>hash2</key>
 			<data>
-			KI3nU5WXOhNKMvtyQcZS7du2iBkOeSJLIauun8vCGJg=
+			Jx7JBg96KDBKcL6SdH/zIOKd6PKcFIXI3ImKJSzQqZg=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8zBIn4l/PUxvFH5f8QQyhsLp4Yo=
+			REwVtA2Y4DxFR9M2gmFNXdxMEdQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			RWsQ37i1ji14j7n/soUZMCtJd25QDq/6xZW7aTJkky4=
+			IVToZnHBoTw4Khn7qRLMgZJA6o1GEnNHlC/WF4mgtXU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
