@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/LPAMS-Swift.h</key>
 		<data>
-		kFdwHVT7q3hMuTjBNGSPFOLdj2U=
+		gJNo+w297PsjjMD1J52kdylEj/g=
 		</data>
 		<key>Headers/LPAMS.h</key>
 		<data>
@@ -14,79 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1OR8Un6vTWFPbfRfX/bOaX6Ja8M=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/arm.swiftdoc</key>
-		<data>
-		dgIw2AtgFLsykSaofQxT6iJVXHE=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/arm.swiftmodule</key>
-		<data>
-		/eB/DDBtrgN/0nKXKfirEQpFVE8=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/arm64-apple-ios.swiftdoc</key>
-		<data>
-		MU5zbRCwDJj6KPT1SEXiPaJ7OJA=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/arm64-apple-ios.swiftmodule</key>
-		<data>
-		PF6+emXbwr+D1dijT6M3877UDt4=
+		aY59uJNwAyCx/F1XSQFUlwB0D2g=
 		</data>
 		<key>Modules/LPAMS.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		MU5zbRCwDJj6KPT1SEXiPaJ7OJA=
+		66ByeRer1iONaOlMmHC6zBAsSHo=
 		</data>
 		<key>Modules/LPAMS.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		PF6+emXbwr+D1dijT6M3877UDt4=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/armv7-apple-ios.swiftdoc</key>
-		<data>
-		dgIw2AtgFLsykSaofQxT6iJVXHE=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/armv7-apple-ios.swiftmodule</key>
-		<data>
-		/eB/DDBtrgN/0nKXKfirEQpFVE8=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/armv7.swiftdoc</key>
-		<data>
-		dgIw2AtgFLsykSaofQxT6iJVXHE=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/armv7.swiftmodule</key>
-		<data>
-		/eB/DDBtrgN/0nKXKfirEQpFVE8=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
-		<data>
-		UzM6ruBjIc5qYgIDK82ZxXtGPxk=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
-		<data>
-		ZJkngvdHs9gO/OvMszMZb8Lh5F8=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/i386.swiftdoc</key>
-		<data>
-		UzM6ruBjIc5qYgIDK82ZxXtGPxk=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/i386.swiftmodule</key>
-		<data>
-		ZJkngvdHs9gO/OvMszMZb8Lh5F8=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
-		<data>
-		jaF+e+n7foW7SP8AIV1H8v/uZFk=
-		</data>
-		<key>Modules/LPAMS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
-		<data>
-		lrgI/VkloIC7AevadBqtheDSROg=
+		mCdTdaRs7Y92n23IKgQQ+kIn7Kw=
 		</data>
 		<key>Modules/LPAMS.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		jaF+e+n7foW7SP8AIV1H8v/uZFk=
+		XUQYWRkkf4Y9XPjqqFy2ViRbYaw=
 		</data>
 		<key>Modules/LPAMS.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		lrgI/VkloIC7AevadBqtheDSROg=
+		DeCtI/O1oK7rL6o32yQiSkN1GE4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -97,230 +41,48 @@
 	<dict>
 		<key>Headers/LPAMS-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kFdwHVT7q3hMuTjBNGSPFOLdj2U=
-			</data>
 			<key>hash2</key>
 			<data>
-			qyOzX40L51gUX03rTEBf45cvEAK3q2vksnE3CeazM3E=
+			c33uIwmYQfT0c5Rfr0cohdte2rZLZll+8ZkRODYXrvI=
 			</data>
 		</dict>
 		<key>Headers/LPAMS.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AGEp/yJSczgb8zdae5xK12TEHFY=
-			</data>
 			<key>hash2</key>
 			<data>
 			w0MtuOvEtXbPCjBjRYuvP0lJ+mDmqOp0xjv8nbE2fAw=
 			</data>
 		</dict>
-		<key>Modules/LPAMS.swiftmodule/arm.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dgIw2AtgFLsykSaofQxT6iJVXHE=
-			</data>
-			<key>hash2</key>
-			<data>
-			whxD88SJop8E0httGTLhytT8T+E63TOU0gJppckbIyE=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/arm.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/eB/DDBtrgN/0nKXKfirEQpFVE8=
-			</data>
-			<key>hash2</key>
-			<data>
-			iu6apV6yaFCb2dRAgb4A78rxm7m3XNEnUQ5DlETug44=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/arm64-apple-ios.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MU5zbRCwDJj6KPT1SEXiPaJ7OJA=
-			</data>
-			<key>hash2</key>
-			<data>
-			dekZFNiSHVDFSxNYBsqGT7EHVoMm3tbg5wuIjqVQhd0=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/arm64-apple-ios.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PF6+emXbwr+D1dijT6M3877UDt4=
-			</data>
-			<key>hash2</key>
-			<data>
-			KBpYxlRBgtmuwNxUWRGwWwjsf+ar/6uacPcpSzZDM6o=
-			</data>
-		</dict>
 		<key>Modules/LPAMS.swiftmodule/arm64.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MU5zbRCwDJj6KPT1SEXiPaJ7OJA=
-			</data>
 			<key>hash2</key>
 			<data>
-			dekZFNiSHVDFSxNYBsqGT7EHVoMm3tbg5wuIjqVQhd0=
+			JUpWsiGVeQGUqopx+XK7sNsWfspln9qKU6ARYaWfbBc=
 			</data>
 		</dict>
 		<key>Modules/LPAMS.swiftmodule/arm64.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PF6+emXbwr+D1dijT6M3877UDt4=
-			</data>
 			<key>hash2</key>
 			<data>
-			KBpYxlRBgtmuwNxUWRGwWwjsf+ar/6uacPcpSzZDM6o=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/armv7-apple-ios.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dgIw2AtgFLsykSaofQxT6iJVXHE=
-			</data>
-			<key>hash2</key>
-			<data>
-			whxD88SJop8E0httGTLhytT8T+E63TOU0gJppckbIyE=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/armv7-apple-ios.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/eB/DDBtrgN/0nKXKfirEQpFVE8=
-			</data>
-			<key>hash2</key>
-			<data>
-			iu6apV6yaFCb2dRAgb4A78rxm7m3XNEnUQ5DlETug44=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/armv7.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dgIw2AtgFLsykSaofQxT6iJVXHE=
-			</data>
-			<key>hash2</key>
-			<data>
-			whxD88SJop8E0httGTLhytT8T+E63TOU0gJppckbIyE=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/armv7.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/eB/DDBtrgN/0nKXKfirEQpFVE8=
-			</data>
-			<key>hash2</key>
-			<data>
-			iu6apV6yaFCb2dRAgb4A78rxm7m3XNEnUQ5DlETug44=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UzM6ruBjIc5qYgIDK82ZxXtGPxk=
-			</data>
-			<key>hash2</key>
-			<data>
-			669QBwggTrysSBT28DINzohm4BJoGkosb3fSDTdwI2Q=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ZJkngvdHs9gO/OvMszMZb8Lh5F8=
-			</data>
-			<key>hash2</key>
-			<data>
-			VEozgM5FzLn3rb0DMP8l1a5B0Oxi2AdKWY8V+dcN4WU=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/i386.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UzM6ruBjIc5qYgIDK82ZxXtGPxk=
-			</data>
-			<key>hash2</key>
-			<data>
-			669QBwggTrysSBT28DINzohm4BJoGkosb3fSDTdwI2Q=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/i386.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ZJkngvdHs9gO/OvMszMZb8Lh5F8=
-			</data>
-			<key>hash2</key>
-			<data>
-			VEozgM5FzLn3rb0DMP8l1a5B0Oxi2AdKWY8V+dcN4WU=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jaF+e+n7foW7SP8AIV1H8v/uZFk=
-			</data>
-			<key>hash2</key>
-			<data>
-			AYC9ByMC3NdsJk5zpZiGbrhAJzleR/bRvAdzKgxub8Y=
-			</data>
-		</dict>
-		<key>Modules/LPAMS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			lrgI/VkloIC7AevadBqtheDSROg=
-			</data>
-			<key>hash2</key>
-			<data>
-			9nXRgkvQI8Xc8ymHtSFWgbzbf4rIlRBciA6G+MOqTLo=
+			KCQmVCMs+uU5Xo6P4Fj1lxQOZMGtCpBYlfN+AgCPXWk=
 			</data>
 		</dict>
 		<key>Modules/LPAMS.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jaF+e+n7foW7SP8AIV1H8v/uZFk=
-			</data>
 			<key>hash2</key>
 			<data>
-			AYC9ByMC3NdsJk5zpZiGbrhAJzleR/bRvAdzKgxub8Y=
+			u3N9K7C263HXM8j00Q9t0LJXa5BqC+bjiWm81by6whA=
 			</data>
 		</dict>
 		<key>Modules/LPAMS.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lrgI/VkloIC7AevadBqtheDSROg=
-			</data>
 			<key>hash2</key>
 			<data>
-			9nXRgkvQI8Xc8ymHtSFWgbzbf4rIlRBciA6G+MOqTLo=
+			eXBBoWRPyPSrNtvECJfCTHCGTwpsZu44MuteH38S3vw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hCeAtVHU+HqlR/Y3sjU1hlGqWQE=
-			</data>
 			<key>hash2</key>
 			<data>
 			qun74SmL9qVYv7FAW2LvGpCbsQTsY/pIu1shEaGAAtg=

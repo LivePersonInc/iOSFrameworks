@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/LPInfra-Swift.h</key>
 		<data>
-		lQS3PnMhgcTcLDDRGErP3F9k/4I=
+		WqxFj6Mk3yNenwtVDkr2WmlleHw=
 		</data>
 		<key>Headers/LPInfra.h</key>
 		<data>
@@ -14,79 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UDzC+oho/ht0KHcDCuGDfbQyzCY=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/arm.swiftdoc</key>
-		<data>
-		+4mdhRxteRVbgIJQHocVlKqgPoc=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/arm.swiftmodule</key>
-		<data>
-		jlI00MKLWtdMPM/u5ysGvZgGD4k=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/arm64-apple-ios.swiftdoc</key>
-		<data>
-		UDprglGaN0SK8/QEHl4Tij1rOYU=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/arm64-apple-ios.swiftmodule</key>
-		<data>
-		EtzE+HmmiOZiTFVQ2n04/Wt8YfE=
+		n9oePdn05uPrPi2Vvu/MfMM2LBw=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		UDprglGaN0SK8/QEHl4Tij1rOYU=
+		vc9rIEM02N0X5W0ynrhnV7ZfIpY=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		EtzE+HmmiOZiTFVQ2n04/Wt8YfE=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/armv7-apple-ios.swiftdoc</key>
-		<data>
-		+4mdhRxteRVbgIJQHocVlKqgPoc=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/armv7-apple-ios.swiftmodule</key>
-		<data>
-		jlI00MKLWtdMPM/u5ysGvZgGD4k=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/armv7.swiftdoc</key>
-		<data>
-		+4mdhRxteRVbgIJQHocVlKqgPoc=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/armv7.swiftmodule</key>
-		<data>
-		jlI00MKLWtdMPM/u5ysGvZgGD4k=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
-		<data>
-		YQDDgmiG3T3bdAkJdfoLfJTPGMA=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
-		<data>
-		plIehyjkuAxat3fcx3izrRA04AU=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/i386.swiftdoc</key>
-		<data>
-		YQDDgmiG3T3bdAkJdfoLfJTPGMA=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/i386.swiftmodule</key>
-		<data>
-		plIehyjkuAxat3fcx3izrRA04AU=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
-		<data>
-		QdD7aOz+dp7kO4HJTAY3rP3OWrs=
-		</data>
-		<key>Modules/LPInfra.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
-		<data>
-		REwVtA2Y4DxFR9M2gmFNXdxMEdQ=
+		9ouFgv9Q2hpOE54koS7CykGc51o=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		QdD7aOz+dp7kO4HJTAY3rP3OWrs=
+		M3x+zi3wtSKxqIhJV8+TZywYe34=
 		</data>
 		<key>Modules/LPInfra.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		REwVtA2Y4DxFR9M2gmFNXdxMEdQ=
+		X6eK0xnDtNyl10B/GAPwn5zS93E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -205,230 +149,48 @@
 	<dict>
 		<key>Headers/LPInfra-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lQS3PnMhgcTcLDDRGErP3F9k/4I=
-			</data>
 			<key>hash2</key>
 			<data>
-			SnzmJdP+20VJlH2X44tk1NnNdoYvIkpTFtp+HSo3XTA=
+			HP3Pq6Bj2ERLPDqV9hAtcELWweyfwgJIeqWpC5mN4fk=
 			</data>
 		</dict>
 		<key>Headers/LPInfra.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			64AoHpfSCTyPwc7l4QLT1ia98so=
-			</data>
 			<key>hash2</key>
 			<data>
 			q9TFSs8fqkQUhrAgJ5rdzGGtg3gnnT24mHy661n3ZpQ=
 			</data>
 		</dict>
-		<key>Modules/LPInfra.swiftmodule/arm.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+4mdhRxteRVbgIJQHocVlKqgPoc=
-			</data>
-			<key>hash2</key>
-			<data>
-			a4wUgBsj6aapo0zAF7vL5zsoMf10qZGVTi5EjUUQpls=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/arm.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jlI00MKLWtdMPM/u5ysGvZgGD4k=
-			</data>
-			<key>hash2</key>
-			<data>
-			iX0ii9EaeYH8d7TvXPgVgrRYXkGyXMWFBs2Pg3wvDJ4=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/arm64-apple-ios.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UDprglGaN0SK8/QEHl4Tij1rOYU=
-			</data>
-			<key>hash2</key>
-			<data>
-			CX6Ih6X0fSyra0Qv0MJWrYJklMIoRGbJZa07Oo+tEXg=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/arm64-apple-ios.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			EtzE+HmmiOZiTFVQ2n04/Wt8YfE=
-			</data>
-			<key>hash2</key>
-			<data>
-			SbjUs+HKpjfELqz3+/FyoF2Jhpeeo8zqzxXiTlDyzKI=
-			</data>
-		</dict>
 		<key>Modules/LPInfra.swiftmodule/arm64.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UDprglGaN0SK8/QEHl4Tij1rOYU=
-			</data>
 			<key>hash2</key>
 			<data>
-			CX6Ih6X0fSyra0Qv0MJWrYJklMIoRGbJZa07Oo+tEXg=
+			GmPQIYQ4jeTytWtmyGnc+c3uIDjQQTu+flt7pQyst8U=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/arm64.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			EtzE+HmmiOZiTFVQ2n04/Wt8YfE=
-			</data>
 			<key>hash2</key>
 			<data>
-			SbjUs+HKpjfELqz3+/FyoF2Jhpeeo8zqzxXiTlDyzKI=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/armv7-apple-ios.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+4mdhRxteRVbgIJQHocVlKqgPoc=
-			</data>
-			<key>hash2</key>
-			<data>
-			a4wUgBsj6aapo0zAF7vL5zsoMf10qZGVTi5EjUUQpls=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/armv7-apple-ios.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jlI00MKLWtdMPM/u5ysGvZgGD4k=
-			</data>
-			<key>hash2</key>
-			<data>
-			iX0ii9EaeYH8d7TvXPgVgrRYXkGyXMWFBs2Pg3wvDJ4=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/armv7.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+4mdhRxteRVbgIJQHocVlKqgPoc=
-			</data>
-			<key>hash2</key>
-			<data>
-			a4wUgBsj6aapo0zAF7vL5zsoMf10qZGVTi5EjUUQpls=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/armv7.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jlI00MKLWtdMPM/u5ysGvZgGD4k=
-			</data>
-			<key>hash2</key>
-			<data>
-			iX0ii9EaeYH8d7TvXPgVgrRYXkGyXMWFBs2Pg3wvDJ4=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YQDDgmiG3T3bdAkJdfoLfJTPGMA=
-			</data>
-			<key>hash2</key>
-			<data>
-			Bi821WmQFw32smOh3ycp3pexcrukBoMmuA88Z+EpEXU=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			plIehyjkuAxat3fcx3izrRA04AU=
-			</data>
-			<key>hash2</key>
-			<data>
-			E5LPX3g6zcPqof1xohpucoMspuPe9BcOVcuIZgly/L0=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/i386.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YQDDgmiG3T3bdAkJdfoLfJTPGMA=
-			</data>
-			<key>hash2</key>
-			<data>
-			Bi821WmQFw32smOh3ycp3pexcrukBoMmuA88Z+EpEXU=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/i386.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			plIehyjkuAxat3fcx3izrRA04AU=
-			</data>
-			<key>hash2</key>
-			<data>
-			E5LPX3g6zcPqof1xohpucoMspuPe9BcOVcuIZgly/L0=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QdD7aOz+dp7kO4HJTAY3rP3OWrs=
-			</data>
-			<key>hash2</key>
-			<data>
-			Jx7JBg96KDBKcL6SdH/zIOKd6PKcFIXI3ImKJSzQqZg=
-			</data>
-		</dict>
-		<key>Modules/LPInfra.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			REwVtA2Y4DxFR9M2gmFNXdxMEdQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			IVToZnHBoTw4Khn7qRLMgZJA6o1GEnNHlC/WF4mgtXU=
+			4U3JG3mA3T9uM6xpuH/LjJhnEJkPSu4lzIHL1PCiMZM=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QdD7aOz+dp7kO4HJTAY3rP3OWrs=
-			</data>
 			<key>hash2</key>
 			<data>
-			Jx7JBg96KDBKcL6SdH/zIOKd6PKcFIXI3ImKJSzQqZg=
+			gL5AUCTIvl0jmLkclt6eWsR7rdYIrotezN1nle9c+yg=
 			</data>
 		</dict>
 		<key>Modules/LPInfra.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			REwVtA2Y4DxFR9M2gmFNXdxMEdQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			IVToZnHBoTw4Khn7qRLMgZJA6o1GEnNHlC/WF4mgtXU=
+			ngtonS/I4V9mZ9bmmb22th0lyUAkqkN8zKYCwDqpM+A=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			34Y4WrnCV6hED+sazjpXR1cm8Qc=
-			</data>
 			<key>hash2</key>
 			<data>
 			q7L2hNQqj6JhbfcXlZm5+dkoRZMYjUjxnryMVrQ3RNI=
@@ -436,10 +198,6 @@
 		</dict>
 		<key>PrivateHeaders/CIContext+Workaround.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fPRVF6hg3WCIB1uOxrMbstlGtK4=
-			</data>
 			<key>hash2</key>
 			<data>
 			N03WxwtkxtPNfMHDQXEaCrzk6h21RE3jB4Q0R0QCACI=
@@ -447,10 +205,6 @@
 		</dict>
 		<key>PrivateHeaders/ExceptionCatcher.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			i6mjqXUNZ1PVwvfMwGdcVVZ1fWM=
-			</data>
 			<key>hash2</key>
 			<data>
 			xvohJ5clvPcRlJ17GpWJJntcAfIWl/bB9KVURjAbgFQ=
@@ -458,10 +212,6 @@
 		</dict>
 		<key>PrivateHeaders/LPBSMobileProvision.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cyRsGAoahyM08rmwtXM6LsjDYIc=
-			</data>
 			<key>hash2</key>
 			<data>
 			C7WcdQgP8z8Et1OZuW5TRgaR39Hldddr6vW5bIRMZdI=
@@ -469,10 +219,6 @@
 		</dict>
 		<key>PrivateHeaders/LPRNCryptor.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6XCeuj13rKBGha0bROVLzR+wEss=
-			</data>
 			<key>hash2</key>
 			<data>
 			p0kXOvcKYKI/EnOaMwbRT+F4avs+k+QT6IRsEbZON7c=
@@ -480,10 +226,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRConstants.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			eFuuUzi3pGWK+QD4tL5X1l0tLNM=
-			</data>
 			<key>hash2</key>
 			<data>
 			vGiuPl3RWCrY/kNXaq5bZjRBE65TLN/z+5+8bkhkupk=
@@ -491,10 +233,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRDelegateController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			WiD+hZ1+DGu343a0yKP2qCrZX9Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			h5YsymEEfehN364QwGsmtvpxwa1WIg9Ob9aS2fidAgE=
@@ -502,10 +240,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRError.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			j/bkESdvRUQfxm+jeITjPHVeZ/k=
-			</data>
 			<key>hash2</key>
 			<data>
 			bmx7brcU4UIUot7yusw+Lu5qRBR4M62EC1GCE6kgIw8=
@@ -513,10 +247,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRHTTPConnectMessage.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fpq/nivsm+y3GCjKfY8NMR3Pk48=
-			</data>
 			<key>hash2</key>
 			<data>
 			q4Du5BqltUFNvkTGZhVom95DJNxRuJfGQTBwJNgtGOE=
@@ -524,10 +254,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRHash.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6iCwlliaDf6BjWWPTv154XP61Ss=
-			</data>
 			<key>hash2</key>
 			<data>
 			DvaQBEm+AM2B02XPuZGOSsjP1RmekvT5JzCmYy1qcqM=
@@ -535,10 +261,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRIOConsumer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lGm3vP2JdwbAIvZIKEjG4/1InmE=
-			</data>
 			<key>hash2</key>
 			<data>
 			/a/jHIqS2F5ivWOBpFDsEJy2p3id1abRdnjufl9tDMg=
@@ -546,10 +268,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRIOConsumerPool.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PKAIiToNE9wo4A9BMwV642ftOoY=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcWZfXZb55O4iCEf6ha1H3GH0QLO9jfqFcDoQx7nxcA=
@@ -557,10 +275,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRLog.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Lbe/wRSRWCUOTeNApGCcQuFe2Ck=
-			</data>
 			<key>hash2</key>
 			<data>
 			yAMQRkBza+ecgAVtRR9ykTDo8Qd2I8AnHHsuB+jTz2I=
@@ -568,10 +282,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRMutex.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QeB//kCxIB8MltWSL6sIfm++0WE=
-			</data>
 			<key>hash2</key>
 			<data>
 			7+XTzIOoDGKkRJsKLOqjtaqywvunhnjW+uBkWCV6WWo=
@@ -579,10 +289,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRPinningSecurityPolicy.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1hUaUgpOVXS3Hnnd1wyjiWZyrmQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			tlZ0zS11LFjWXuI4YBxiat4cargK1bkklFTbeE4iUcc=
@@ -590,10 +296,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRProxyConnect.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mmjGXn2HuonH2MucQygeCxgdKvM=
-			</data>
 			<key>hash2</key>
 			<data>
 			rrusfeHeHKvEgm6X/9pfq6uQAYtdImIWn0W8y3TZyHI=
@@ -601,10 +303,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRRandom.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			K1d9bwcbhKeu6v5Px89jnwxozqs=
-			</data>
 			<key>hash2</key>
 			<data>
 			KtcADPMZiUX4q/sCPoNY2J0M+kf8r6cG+B2AXdVWndI=
@@ -612,10 +310,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRRunLoopThread.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ElmHVYGoEYR8lAE/vpRstj/tI6A=
-			</data>
 			<key>hash2</key>
 			<data>
 			5TngaaAdwZNMru4leOaPRXyCjpkxsdyNTFZBRLkkqbs=
@@ -623,10 +317,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRSIMDHelpers.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xB/5r5cWrM5ejqlwy5ntAIardyM=
-			</data>
 			<key>hash2</key>
 			<data>
 			QIu9Q8qWJXJ5hslV23ilHdKDcuAXBYIvcN1vLroWOYo=
@@ -634,10 +324,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRSecurityPolicy.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			g9Scg0X2M2xQyYJrEDURNZax8rU=
-			</data>
 			<key>hash2</key>
 			<data>
 			CYagE0rHe++VczkzeZBERb/Y+PfXFjya43FxVng2OH8=
@@ -645,10 +331,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRURLUtilities.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hYyzcF2lNWzslAaClkZdElPbdf4=
-			</data>
 			<key>hash2</key>
 			<data>
 			5RCZRUQv92bALjKYoz2X/xFH2AYXcsv0ajhOl7jAl0A=
@@ -656,10 +338,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSRWebSocket.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Q25T9V95JP4Y9bX4Ds0zNBIq5hk=
-			</data>
 			<key>hash2</key>
 			<data>
 			OU1FR75onGmS7dsICj7oJLll/EHb4/jTImnxP9jK8lo=
@@ -667,10 +345,6 @@
 		</dict>
 		<key>PrivateHeaders/LPSocketRocket.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cgvC1RW9ZIYv9EVb4S+scpqTIbs=
-			</data>
 			<key>hash2</key>
 			<data>
 			Y07YrCUjG9q/NZo6Vq/4CxbUiKxx+Z/h6Pd/XJqpAAo=
@@ -678,10 +352,6 @@
 		</dict>
 		<key>PrivateHeaders/NSRunLoop+LPSRWebSocket.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			G+82DdiVbOOlJ5I4V4dPYHya0do=
-			</data>
 			<key>hash2</key>
 			<data>
 			k224nqqxLYDGj/jgv4UiCoG3JMX9QR2UZBzCARmS0Gk=
@@ -689,10 +359,6 @@
 		</dict>
 		<key>PrivateHeaders/NSRunLoop+LPSRWebSocketPrivate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rD7swwku9FoXBgKj0qBcNs2oeo4=
-			</data>
 			<key>hash2</key>
 			<data>
 			srUn3MlAWWODoRwaNAOmGton0HbuwF/URntJOfLFcd8=
@@ -700,10 +366,6 @@
 		</dict>
 		<key>PrivateHeaders/NSURLRequest+LPSRWebSocket.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			R7/EKAhEBX8DhzRwCpCjuFeT8FY=
-			</data>
 			<key>hash2</key>
 			<data>
 			85jzALx4rtgMlahl1/aAuDfo0m85DMSqj37Nk5v9uuU=
@@ -711,10 +373,6 @@
 		</dict>
 		<key>PrivateHeaders/NSURLRequest+LPSRWebSocketPrivate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			e30RaPpoYHEvspfAFqdhEXfvTFk=
-			</data>
 			<key>hash2</key>
 			<data>
 			Vn49GqVmUqIsXanD7mLaOnVUZQUJhsiCVcXS/Y876WY=
@@ -722,10 +380,6 @@
 		</dict>
 		<key>frameworks-strip.sh</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZJZ/yq+MAtNAz4VXfP8jua2uT3Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			SS+4ekJ+Wm1zTno/DTgzVn4nAXnz6ZjwdTxRUHPj3vE=
