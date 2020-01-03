@@ -462,11 +462,6 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 /// returns:
 /// Optional array of messages
 + (NSArray<LPMessageEntity *> * _Nullable)getLoadingStructuredContentMessages SWIFT_WARN_UNUSED_RESULT;
-/// Get the latest batch of unread messages
-///
-/// returns:
-/// array of unread messages or nil
-+ (NSArray<LPMessageEntity *> * _Nullable)getLatestUnreadMessages SWIFT_WARN_UNUSED_RESULT;
 /// Gets custom items with image state of “downloading”
 ///
 /// returns:
@@ -495,6 +490,11 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 + (void)saveQuickReplyItemWithQuickReplyItem:(QuickReplyItem * _Nonnull)quickReplyItem;
 + (void)clearLastSavedQuickReplyItem;
 + (void)registerPusherWithLoginFlowWithBrand:(LPBrandEntity * _Nonnull)brand authenticationParams:(LPAuthenticationParams * _Nullable)authenticationParams;
+/// Get the latest batch of unread messages
+///
+/// returns:
+/// array of unread messages or nil
++ (NSArray<LPMessageEntity *> * _Nullable)getLatestUnreadMessages SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class TTRModel;
@@ -549,6 +549,8 @@ typedef SWIFT_ENUM(NSInteger, SocketType, closed) {
   SocketTypeConsumer = 0,
   SocketTypeAgent = 1,
 };
+
+
 
 
 
@@ -1020,11 +1022,6 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 /// returns:
 /// Optional array of messages
 + (NSArray<LPMessageEntity *> * _Nullable)getLoadingStructuredContentMessages SWIFT_WARN_UNUSED_RESULT;
-/// Get the latest batch of unread messages
-///
-/// returns:
-/// array of unread messages or nil
-+ (NSArray<LPMessageEntity *> * _Nullable)getLatestUnreadMessages SWIFT_WARN_UNUSED_RESULT;
 /// Gets custom items with image state of “downloading”
 ///
 /// returns:
@@ -1053,6 +1050,11 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 + (void)saveQuickReplyItemWithQuickReplyItem:(QuickReplyItem * _Nonnull)quickReplyItem;
 + (void)clearLastSavedQuickReplyItem;
 + (void)registerPusherWithLoginFlowWithBrand:(LPBrandEntity * _Nonnull)brand authenticationParams:(LPAuthenticationParams * _Nullable)authenticationParams;
+/// Get the latest batch of unread messages
+///
+/// returns:
+/// array of unread messages or nil
++ (NSArray<LPMessageEntity *> * _Nullable)getLatestUnreadMessages SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class TTRModel;
@@ -1107,6 +1109,8 @@ typedef SWIFT_ENUM(NSInteger, SocketType, closed) {
   SocketTypeConsumer = 0,
   SocketTypeAgent = 1,
 };
+
+
 
 
 

@@ -286,7 +286,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 + (BOOL)isBrandReady:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// This method returns the SDK version.
 + (NSString * _Nullable)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
-/// Reset last saved scroll poistion of the conversation screen
+/// Reset last saved scroll position of the conversation screen
 + (void)resetConversationScreenSavedScrollPosition;
 /// Get inActive time in second from the user last touch on screen
 ///
@@ -771,6 +771,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMessagingS
 /// Key - Locale key
 /// Value - explicit language name (example: “English”, “Portuguese (Brazil)”, …)
 - (NSDictionary<NSString *, NSString *> * _Nonnull)getAllSupportedLanguages SWIFT_WARN_UNUSED_RESULT;
+/// Notifies the SDK that a push notification was tapped.
+/// This method should be called immediately after the host app has determined that a notification was tapped.
+/// For scroll behavior on push notification tapped, see LPConfig.conversationScrollConfiguration
+- (void)setPushNotificationTapped;
 @end
 
 
@@ -1057,6 +1061,8 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK17UIAdapterDelegate_")
 - (UIImage * _Nonnull)getDefaultRecepientAvatarImage:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 - (UIGestureRecognizer * _Nonnull)getTableViewCustomGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
@@ -1373,7 +1379,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPMessagingAPI")
 + (BOOL)isBrandReady:(NSString * _Nonnull)brandID SWIFT_WARN_UNUSED_RESULT;
 /// This method returns the SDK version.
 + (NSString * _Nullable)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
-/// Reset last saved scroll poistion of the conversation screen
+/// Reset last saved scroll position of the conversation screen
 + (void)resetConversationScreenSavedScrollPosition;
 /// Get inActive time in second from the user last touch on screen
 ///
@@ -1858,6 +1864,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMessagingS
 /// Key - Locale key
 /// Value - explicit language name (example: “English”, “Portuguese (Brazil)”, …)
 - (NSDictionary<NSString *, NSString *> * _Nonnull)getAllSupportedLanguages SWIFT_WARN_UNUSED_RESULT;
+/// Notifies the SDK that a push notification was tapped.
+/// This method should be called immediately after the host app has determined that a notification was tapped.
+/// For scroll behavior on push notification tapped, see LPConfig.conversationScrollConfiguration
+- (void)setPushNotificationTapped;
 @end
 
 
@@ -2144,6 +2154,8 @@ SWIFT_PROTOCOL("_TtP14LPMessagingSDK17UIAdapterDelegate_")
 - (UIImage * _Nonnull)getDefaultRecepientAvatarImage:(id <ConversationParamProtocol> _Nonnull)conversationQuery SWIFT_WARN_UNUSED_RESULT;
 - (UIGestureRecognizer * _Nonnull)getTableViewCustomGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
