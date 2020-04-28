@@ -1272,6 +1272,19 @@ SWIFT_CLASS("_TtC7LPInfra20LPConversationEntity")
 - (BOOL)isActivityInIdle SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.isActivityInIdle()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (NSArray<LPMessageEntity *> * _Nonnull)getMessagesPage:(NSInteger)from pageSize:(NSInteger)pageSize SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.getMessagesPage(_:pageSize:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (BOOL)isCurrentlyUrgent SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.isCurrentlyUrgent()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Will evalute if conversation was resolved by the following reason:
+/// <h2>CloseReason</h2>
+/// <ul>
+///   <li>
+///     Timeout: Conversation was opened but a message was never send
+///   </li>
+///   <li>
+///     System: Autoclose (agent sent last message and due inactivity system closed conversation)
+///   </li>
+///   <li>
+///     Unknown: At some point we lost track of last state and UMS is no longer the owner of this conversation, will sync state with INCA later
+///   </li>
+/// </ul>
 @property (nonatomic, readonly) BOOL isResolvedAutomatically SWIFT_DEPRECATED_OBJC("Swift property 'LPConversationEntity.isResolvedAutomatically' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)resolve SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.resolve()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)resolve:(NSString * _Nonnull)closeReason SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.resolve(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -1279,6 +1292,20 @@ SWIFT_CLASS("_TtC7LPInfra20LPConversationEntity")
 /// \param resolvingConversation The conversation that is about to be closed
 ///
 - (void)passPendingMessagesToNewConversationWithResolvingConversation:(LPConversationEntity * _Nonnull)resolvingConversation SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.passPendingMessagesToNewConversation(resolvingConversation:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Will resolve stuck conversation and pass failed messages to new Conversation
+/// <h2>Steps:</h2>
+/// <ul>
+///   <li>
+///     Resolves stuck Conversation with state = UNKNOWN,
+///   </li>
+///   <li>
+///     Creates new Conversation & Dialog
+///   </li>
+///   <li>
+///     Assigns new Dialog as owner of failed messages of Stuck Conversation
+///   </li>
+/// </ul>
+- (LPConversationEntity * _Nullable)resolveWithPassOverToNewConversation SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.resolveWithPassOverToNewConversation()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// TODO:
 /// Move this function to UITimestampsFormatter once the new system messages will be implemented and the timestamp will not be saved to DB.
 - (NSString * _Nonnull)getResolveDateString:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.getResolveDateString(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -1295,6 +1322,15 @@ SWIFT_CLASS("_TtC7LPInfra20LPConversationEntity")
 /// \param reset reset effectiveTTR which will be applied only if there’s no manualETTR. Reset usuall should be sent upon agent’s messages
 ///
 - (void)updateTTRModelWithReset:(BOOL)reset SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.updateTTRModel(reset:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Will return last known message timestamp
+/// precondition:
+/// Message has to be from either a Consumer or an Agent
+/// important:
+/// If able to find a timestamp from a message, we need to add a second to the timestamp so that way the Resolved Message can be render properly (closeDate)
+///
+/// returns:
+/// LastKnown Date or Now timestamp
+- (NSDate * _Nullable)getLastKnownMessageTimestamp SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.getLastKnownMessageTimestamp()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// return all open dialog for conversation
 ///
 /// returns:
@@ -4192,6 +4228,19 @@ SWIFT_CLASS("_TtC7LPInfra20LPConversationEntity")
 - (BOOL)isActivityInIdle SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.isActivityInIdle()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (NSArray<LPMessageEntity *> * _Nonnull)getMessagesPage:(NSInteger)from pageSize:(NSInteger)pageSize SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.getMessagesPage(_:pageSize:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (BOOL)isCurrentlyUrgent SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.isCurrentlyUrgent()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Will evalute if conversation was resolved by the following reason:
+/// <h2>CloseReason</h2>
+/// <ul>
+///   <li>
+///     Timeout: Conversation was opened but a message was never send
+///   </li>
+///   <li>
+///     System: Autoclose (agent sent last message and due inactivity system closed conversation)
+///   </li>
+///   <li>
+///     Unknown: At some point we lost track of last state and UMS is no longer the owner of this conversation, will sync state with INCA later
+///   </li>
+/// </ul>
 @property (nonatomic, readonly) BOOL isResolvedAutomatically SWIFT_DEPRECATED_OBJC("Swift property 'LPConversationEntity.isResolvedAutomatically' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)resolve SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.resolve()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)resolve:(NSString * _Nonnull)closeReason SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.resolve(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -4199,6 +4248,20 @@ SWIFT_CLASS("_TtC7LPInfra20LPConversationEntity")
 /// \param resolvingConversation The conversation that is about to be closed
 ///
 - (void)passPendingMessagesToNewConversationWithResolvingConversation:(LPConversationEntity * _Nonnull)resolvingConversation SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.passPendingMessagesToNewConversation(resolvingConversation:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Will resolve stuck conversation and pass failed messages to new Conversation
+/// <h2>Steps:</h2>
+/// <ul>
+///   <li>
+///     Resolves stuck Conversation with state = UNKNOWN,
+///   </li>
+///   <li>
+///     Creates new Conversation & Dialog
+///   </li>
+///   <li>
+///     Assigns new Dialog as owner of failed messages of Stuck Conversation
+///   </li>
+/// </ul>
+- (LPConversationEntity * _Nullable)resolveWithPassOverToNewConversation SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.resolveWithPassOverToNewConversation()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// TODO:
 /// Move this function to UITimestampsFormatter once the new system messages will be implemented and the timestamp will not be saved to DB.
 - (NSString * _Nonnull)getResolveDateString:(NSDate * _Nonnull)date SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.getResolveDateString(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -4215,6 +4278,15 @@ SWIFT_CLASS("_TtC7LPInfra20LPConversationEntity")
 /// \param reset reset effectiveTTR which will be applied only if there’s no manualETTR. Reset usuall should be sent upon agent’s messages
 ///
 - (void)updateTTRModelWithReset:(BOOL)reset SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.updateTTRModel(reset:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+/// Will return last known message timestamp
+/// precondition:
+/// Message has to be from either a Consumer or an Agent
+/// important:
+/// If able to find a timestamp from a message, we need to add a second to the timestamp so that way the Resolved Message can be render properly (closeDate)
+///
+/// returns:
+/// LastKnown Date or Now timestamp
+- (NSDate * _Nullable)getLastKnownMessageTimestamp SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LPConversationEntity.getLastKnownMessageTimestamp()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 /// return all open dialog for conversation
 ///
 /// returns:
