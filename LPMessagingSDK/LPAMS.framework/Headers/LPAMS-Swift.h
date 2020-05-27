@@ -495,6 +495,34 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 /// returns:
 /// array of unread messages or nil
 + (NSArray<LPMessageEntity *> * _Nullable)getLatestUnreadMessages SWIFT_WARN_UNUSED_RESULT;
+/// Get Count of Unread Messages for current User
+/// important:
+/// This is for use within the LPMessagingSDK ONLY!  This API will not be honored for EXTERNAL USE
+/// \param brand liveperson account id
+///
+/// \param authenticationParams an optional authentication param (LPAuthenticationParams) to be used as authentication
+///
+/// \param completion called once the operation ends sucessfully
+///
+/// \param failure called once the operation fails
+///
++ (void)getUnreadMessagesCountWithBrand:(LPBrandEntity * _Nonnull)brand authenticationParams:(LPAuthenticationParams * _Nullable)authenticationParams completion:(void (^ _Nonnull)(NSInteger))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
+/// Gets users registration status on the Pusher Server
+/// important:
+/// This is for use within the LPMessagingSDK ONLY!  This API will not be honored for EXTERNAL USE
+/// \param conversationQuery used to identify the related brand
+///
+/// \param authenticationParams an optional authentication param (LPAuthenticationParams) to be used as authentication
+///
+/// \param completion called once the operation ends sucessfully
+///
+/// \param failure called once the operation fails
+///
+/// \param isRegistered Boolean contaning flag if user is registered on Pusher
+///
+/// \param error corresponding error
+///
++ (void)isRegisteredForPushNotifications:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationParams:(LPAuthenticationParams * _Nullable)authenticationParams completion:(void (^ _Nonnull)(BOOL))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 @end
 
 @class TTRModel;
@@ -510,7 +538,7 @@ SWIFT_PROTOCOL("_TtP5LPAMS19LPAMSFacadeDelegate_")
 - (void)retrieveHistoryMessagingEventNotificationsDidProgressWithConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery completed:(NSInteger)completed total:(NSInteger)total;
 - (void)retrieveHistoryEngagementHistoryDidProgressWithConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery completed:(NSInteger)completed total:(NSInteger)total;
 - (void)retrieveHistoryMessagingEventNotificationStateDidChangeWithConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery isFinished:(BOOL)isFinished fetchedConversationCount:(NSInteger)fetchedConversationCount fetchedMessages:(NSArray<LPMessageEntity *> * _Nullable)fetchedMessages increaseNumberOfPresentedConversationsBy:(NSInteger)increaseNumberOfPresentedConversationsBy;
-- (void)didSendMessages:(LPDialogEntity * _Nonnull)dialog messages:(NSArray<LPMessageEntity *> * _Nonnull)messages;
+- (void)didSendMessages:(LPDialogEntity * _Nonnull)dialog messages:(NSArray<LPMessageEntity *> * _Nonnull)messages isFromConversationHandler:(BOOL)isFromConversationHandler;
 - (void)willReceiveMessages;
 - (void)didReceiveMessages:(LPDialogEntity * _Nonnull)dialog messages:(NSArray<LPMessageEntity *> * _Nonnull)messages;
 - (void)didReceiveMessagingEvent;
@@ -536,7 +564,7 @@ SWIFT_PROTOCOL("_TtP5LPAMS19LPAMSFacadeDelegate_")
 - (void)didAcceptRingWithConversation:(LPConversationEntity * _Nonnull)conversation connection:(LPConnection * _Nonnull)connection;
 @end
 
-/// Used to set the socket type as consumer aor brand. The URI for opening the socket is different between the two.
+/// Used to set the socket type as consumer and/or brand. The URI for opening the socket is different between the two.
 /// <ul>
 ///   <li>
 ///     Consumer: End user is a consumer.
@@ -1055,6 +1083,34 @@ SWIFT_CLASS("_TtC5LPAMS11LPAMSFacade")
 /// returns:
 /// array of unread messages or nil
 + (NSArray<LPMessageEntity *> * _Nullable)getLatestUnreadMessages SWIFT_WARN_UNUSED_RESULT;
+/// Get Count of Unread Messages for current User
+/// important:
+/// This is for use within the LPMessagingSDK ONLY!  This API will not be honored for EXTERNAL USE
+/// \param brand liveperson account id
+///
+/// \param authenticationParams an optional authentication param (LPAuthenticationParams) to be used as authentication
+///
+/// \param completion called once the operation ends sucessfully
+///
+/// \param failure called once the operation fails
+///
++ (void)getUnreadMessagesCountWithBrand:(LPBrandEntity * _Nonnull)brand authenticationParams:(LPAuthenticationParams * _Nullable)authenticationParams completion:(void (^ _Nonnull)(NSInteger))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
+/// Gets users registration status on the Pusher Server
+/// important:
+/// This is for use within the LPMessagingSDK ONLY!  This API will not be honored for EXTERNAL USE
+/// \param conversationQuery used to identify the related brand
+///
+/// \param authenticationParams an optional authentication param (LPAuthenticationParams) to be used as authentication
+///
+/// \param completion called once the operation ends sucessfully
+///
+/// \param failure called once the operation fails
+///
+/// \param isRegistered Boolean contaning flag if user is registered on Pusher
+///
+/// \param error corresponding error
+///
++ (void)isRegisteredForPushNotifications:(id <ConversationParamProtocol> _Nonnull)conversationQuery authenticationParams:(LPAuthenticationParams * _Nullable)authenticationParams completion:(void (^ _Nonnull)(BOOL))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
 @end
 
 @class TTRModel;
@@ -1070,7 +1126,7 @@ SWIFT_PROTOCOL("_TtP5LPAMS19LPAMSFacadeDelegate_")
 - (void)retrieveHistoryMessagingEventNotificationsDidProgressWithConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery completed:(NSInteger)completed total:(NSInteger)total;
 - (void)retrieveHistoryEngagementHistoryDidProgressWithConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery completed:(NSInteger)completed total:(NSInteger)total;
 - (void)retrieveHistoryMessagingEventNotificationStateDidChangeWithConversationQuery:(id <ConversationParamProtocol> _Nonnull)conversationQuery isFinished:(BOOL)isFinished fetchedConversationCount:(NSInteger)fetchedConversationCount fetchedMessages:(NSArray<LPMessageEntity *> * _Nullable)fetchedMessages increaseNumberOfPresentedConversationsBy:(NSInteger)increaseNumberOfPresentedConversationsBy;
-- (void)didSendMessages:(LPDialogEntity * _Nonnull)dialog messages:(NSArray<LPMessageEntity *> * _Nonnull)messages;
+- (void)didSendMessages:(LPDialogEntity * _Nonnull)dialog messages:(NSArray<LPMessageEntity *> * _Nonnull)messages isFromConversationHandler:(BOOL)isFromConversationHandler;
 - (void)willReceiveMessages;
 - (void)didReceiveMessages:(LPDialogEntity * _Nonnull)dialog messages:(NSArray<LPMessageEntity *> * _Nonnull)messages;
 - (void)didReceiveMessagingEvent;
@@ -1096,7 +1152,7 @@ SWIFT_PROTOCOL("_TtP5LPAMS19LPAMSFacadeDelegate_")
 - (void)didAcceptRingWithConversation:(LPConversationEntity * _Nonnull)conversation connection:(LPConnection * _Nonnull)connection;
 @end
 
-/// Used to set the socket type as consumer aor brand. The URI for opening the socket is different between the two.
+/// Used to set the socket type as consumer and/or brand. The URI for opening the socket is different between the two.
 /// <ul>
 ///   <li>
 ///     Consumer: End user is a consumer.
