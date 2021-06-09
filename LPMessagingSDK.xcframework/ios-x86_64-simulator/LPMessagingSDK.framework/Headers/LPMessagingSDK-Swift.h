@@ -852,6 +852,16 @@ SWIFT_CLASS("_TtC14LPMessagingSDK8LPConfig")
 ///   </li>
 /// </ol>
 @property (nonatomic) BOOL inAppReportingEnabled;
+/// Enable or disable the ability to process Proactive and IVR Deflection messages
+/// precondition:
+/// HostApp implements <code>LPMessagingSDKNotification(customLocalPushNotificationView notification: LPNotification)</code>
+/// requires:
+/// Consumer to be registered for Push Notifications
+/// since:
+/// LPMessagingSDK 6.4.1
+/// remark:
+/// Default value is <code>false</code>
+@property (nonatomic) BOOL enableInAppProcessingForActiveState;
 /// Distance between the bottom and top edges of the button to the bottom and top edges of the text.
 @property (nonatomic) CGFloat quickReplyButtonVerticalPadding;
 /// Distance between the right and left edges of the button to the right and left edges of the text.
@@ -1503,6 +1513,7 @@ typedef SWIFT_ENUM(NSInteger, LPLoggingLevel, open) {
 @class LPMonitoringIdentity;
 @class LPMonitoringParams;
 @class LPSendSDEResponse;
+@class LPNotification;
 
 SWIFT_CLASS("_TtC14LPMessagingSDK11LPMessaging")
 @interface LPMessaging : NSObject
@@ -1651,6 +1662,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) LPMessaging 
 /// \param failure failure block with an error in case the request fails
 ///
 - (void)sendSDEWithIdentities:(NSArray<LPMonitoringIdentity *> * _Nonnull)identities monitoringParams:(LPMonitoringParams * _Nonnull)monitoringParams completion:(void (^ _Nonnull)(LPSendSDEResponse * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
+/// Will handle the case when Consumer taps an In App Notification that contains a Proactive Engagement
+/// \param notification LPNotification
+///
+- (void)handleTapForInAppNotificationWithNotification:(LPNotification * _Nonnull)notification;
 /// This method deletes all the messages and closed conversation of the related conversation query.
 /// This method throws an error if the conversations history failed to cleared.
 /// Note: clear history is allowed only if there is no open/active conversation related to the passed conversation query.
@@ -1909,7 +1924,6 @@ typedef SWIFT_ENUM(NSInteger, LPMessagingSDKFeature, open) {
   LPMessagingSDKFeatureAgentFileSharing = 2,
 };
 
-@class LPNotification;
 @class UIView;
 
 SWIFT_PROTOCOL("_TtP14LPMessagingSDK34LPMessagingSDKNotificationDelegate_")
@@ -2045,6 +2059,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK14LPNotification")
 @property (nonatomic) BOOL isRemote;
 @property (nonatomic, strong) ProactiveNotificationData * _Nullable proActiveData;
 @property (nonatomic, readonly, copy) NSString * _Nonnull toString;
+@property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
 - (nonnull instancetype)initWithText:(NSString * _Nonnull)text firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName uid:(NSString * _Nullable)uid accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote proActiveData:(ProactiveNotificationData * _Nullable)proActiveData;
 - (nonnull instancetype)initWithMessage:(id <Message> _Nonnull)message isRemote:(BOOL)isRemote proActiveData:(ProactiveNotificationData * _Nullable)proActiveData;
 - (nonnull instancetype)initWithText:(NSString * _Nonnull)text user:(LPUser * _Nonnull)user accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote proActiveData:(ProactiveNotificationData * _Nullable)proActiveData OBJC_DESIGNATED_INITIALIZER;
@@ -2461,6 +2476,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK12NSBouncyView")
 
 SWIFT_CLASS("_TtC14LPMessagingSDK25ProactiveNotificationData")
 @interface ProactiveNotificationData : NSObject <NSCoding>
+@property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
