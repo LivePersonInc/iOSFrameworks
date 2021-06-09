@@ -1669,6 +1669,7 @@ public enum QuickReplyActionType : Swift.String {
   @objc public var userFileStateTint: UIKit.UIColor
   @objc public var userPhotoStateTint: UIKit.UIColor
   @objc public var inAppReportingEnabled: Swift.Bool
+  @objc public var enableInAppProcessingForActiveState: Swift.Bool
   @objc public var quickReplyButtonVerticalPadding: CoreGraphics.CGFloat
   @objc public var quickReplyButtonHorizontalPadding: CoreGraphics.CGFloat
   @objc public var quickReplyVerticalMargin: CoreGraphics.CGFloat
@@ -2093,7 +2094,6 @@ public let LP_ERROR_CONTENT_MESSAGE: Swift.String
 public let LOADER: Swift.String
 public let DEST: Swift.String
 public let SET_PROFILE_IMG: Swift.String
-public let RING_PUSH_TAPPED: Swift.String
 public let APP_ID: Swift.String
 public let SUPPORTED_FILE_UTI_COLLECTION: [Swift.String]
 public let SUPPORTED_FILE_EXTENSION_COLLECTION: [Swift.String]
@@ -2299,7 +2299,6 @@ public struct LPNotificationName {
   public static let AGENT_AVATAR_TAPPED: Foundation.Notification.Name
   public static let AGENT_DETAILS_FETCHED: Foundation.Notification.Name
   public static let MESSAGE_NOTIFICATION_RECEIVED: Foundation.Notification.Name
-  public static let CONVERSATION_VIEWCONTROLLER_REMOVED: Foundation.Notification.Name
   public static let ACTIVE_AGENT_DETAILS_CHANGED: Foundation.Notification.Name
   public static let SOCKET_OPENED: Foundation.Notification.Name
   public static let SOCKET_CLOSED: Foundation.Notification.Name
@@ -2831,6 +2830,9 @@ public protocol LPStructuredContentLoggerDelegate : AnyObject {
   @objc public var toString: Swift.String {
     @objc get
   }
+  @objc override dynamic public var debugDescription: Swift.String {
+    @objc get
+  }
   @objc convenience public init(text: Swift.String, firstName: Swift.String?, lastName: Swift.String?, uid: Swift.String?, accountID: Swift.String, isRemote: Swift.Bool = false, proActiveData: LPMessagingSDK.ProactiveNotificationData? = nil)
   @objc convenience public init(message: LPMessagingSDK.Message, isRemote: Swift.Bool = false, proActiveData: LPMessagingSDK.ProactiveNotificationData? = nil)
   @objc public init(text: Swift.String, user: LPMessagingSDK.LPUser, accountID: Swift.String, isRemote: Swift.Bool = false, proActiveData: LPMessagingSDK.ProactiveNotificationData? = nil)
@@ -2873,6 +2875,7 @@ public protocol LPStructuredContentLoggerDelegate : AnyObject {
   @objc public func getEngagement(identities: [LPMessagingSDK.LPMonitoringIdentity], monitoringParams: LPMessagingSDK.LPMonitoringParams?, completion: @escaping (LPMessagingSDK.LPGetEngagementResponse) -> (), failure: @escaping (Foundation.NSError) -> ())
   @objc public func setAuthenticationParams(authenticationParams: LPMessagingSDK.LPAuthenticationParams, brandID: Swift.String)
   @objc public func sendSDE(identities: [LPMessagingSDK.LPMonitoringIdentity], monitoringParams: LPMessagingSDK.LPMonitoringParams, completion: @escaping (LPMessagingSDK.LPSendSDEResponse) -> (), failure: @escaping (Foundation.NSError) -> ())
+  @objc public func handleTapForInAppNotification(notification: LPMessagingSDK.LPNotification)
   @objc public func clearHistory(_ conversationQuery: LPMessagingSDK.ConversationParamProtocol) throws
   @objc public func printAllLocalizedKeys()
   @objc public func printSupportedLanguages()
@@ -2960,6 +2963,9 @@ public protocol LPStructuredContentImageDownloader {
   @objc optional func LPMessagingSDKUnauthenticatedUserExpired()
 }
 @objc public class ProactiveNotificationData : ObjectiveC.NSObject, Foundation.NSCoding {
+  @objc override dynamic public var debugDescription: Swift.String {
+    @objc get
+  }
   public init(brandId: Swift.String, lookBackPeriod: Swift.Double? = nil, expirationEpochTime: Swift.Double, agentPid: Swift.String? = nil, backendService: Swift.String? = nil, leCampaignId: Swift.String? = nil, leEngagementId: Swift.String? = nil, externalConsumerId: Swift.String? = nil, transactionId: Swift.String? = nil)
   @objc required public init?(coder: Foundation.NSCoder)
   @objc public func encode(with coder: Foundation.NSCoder)
