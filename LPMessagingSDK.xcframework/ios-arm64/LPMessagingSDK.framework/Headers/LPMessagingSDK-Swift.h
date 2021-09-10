@@ -2238,15 +2238,16 @@ SWIFT_CLASS("_TtC14LPMessagingSDK18LPMonitoringParams")
 SWIFT_CLASS("_TtC14LPMessagingSDK14LPNotification")
 @interface LPNotification : NSObject <NSCoding>
 @property (nonatomic, copy) NSString * _Nonnull text;
+@property (nonatomic, copy) NSString * _Nullable body;
 @property (nonatomic, strong) LPUser * _Nonnull user;
 @property (nonatomic, copy) NSString * _Nonnull accountID;
 @property (nonatomic) BOOL isRemote;
 @property (nonatomic, strong) ProactiveNotificationData * _Nullable proActiveData;
 @property (nonatomic, readonly, copy) NSString * _Nonnull toString;
 @property (nonatomic, readonly, copy) NSString * _Nonnull debugDescription;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName uid:(NSString * _Nullable)uid accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote proActiveData:(ProactiveNotificationData * _Nullable)proActiveData;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text body:(NSString * _Nullable)body firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName uid:(NSString * _Nullable)uid accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote proActiveData:(ProactiveNotificationData * _Nullable)proActiveData;
 - (nonnull instancetype)initWithMessage:(id <Message> _Nonnull)message isRemote:(BOOL)isRemote proActiveData:(ProactiveNotificationData * _Nullable)proActiveData;
-- (nonnull instancetype)initWithText:(NSString * _Nonnull)text user:(LPUser * _Nonnull)user accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote proActiveData:(ProactiveNotificationData * _Nullable)proActiveData OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithText:(NSString * _Nonnull)text body:(NSString * _Nullable)body user:(LPUser * _Nonnull)user accountID:(NSString * _Nonnull)accountID isRemote:(BOOL)isRemote proActiveData:(ProactiveNotificationData * _Nullable)proActiveData OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;

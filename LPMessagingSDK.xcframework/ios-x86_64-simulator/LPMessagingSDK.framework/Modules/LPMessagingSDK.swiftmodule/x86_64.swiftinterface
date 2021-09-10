@@ -1291,6 +1291,7 @@ public enum LocalMessageType : Swift.Int, Swift.CaseIterable {
   case cobrowseMessage
   case transcendentMessage
   case proactiveMessage
+  case richProactiveMessage
   public init?(number: Foundation.NSNumber)
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
@@ -1673,6 +1674,7 @@ public enum LPFlowTag : Swift.CustomStringConvertible {
   case PROACTIVE_MESSAGE
   case PUSHER
   case RESOLVED_SEPARATOR
+  case RICH_PROACTIVE_MESSAGE
   case SECURE_FORM
   case SCROLLING
   case SCROLL_POSITION
@@ -3089,6 +3091,7 @@ public protocol LPStructuredContentLoggerDelegate : AnyObject {
   }
   public var conversation: LPMessagingSDK.Conversation?
   public var text: Swift.String
+  public var body: Swift.String?
   public var userID: Swift.String?
   public var type: LPMessagingSDK.NotificationPayload.PayloadType?
   public var proActiveData: LPMessagingSDK.ProactiveNotificationData?
@@ -3232,6 +3235,7 @@ extension LPCalendarView : UIKit.UICollectionViewDelegateFlowLayout {
 }
 @objcMembers @objc public class LPNotification : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var text: Swift.String
+  @objc public var body: Swift.String?
   @objc public var user: LPMessagingSDK.LPUser
   @objc public var accountID: Swift.String
   @objc public var isRemote: Swift.Bool
@@ -3242,9 +3246,9 @@ extension LPCalendarView : UIKit.UICollectionViewDelegateFlowLayout {
   @objc override dynamic public var debugDescription: Swift.String {
     @objc get
   }
-  @objc convenience public init(text: Swift.String, firstName: Swift.String?, lastName: Swift.String?, uid: Swift.String?, accountID: Swift.String, isRemote: Swift.Bool = false, proActiveData: LPMessagingSDK.ProactiveNotificationData? = nil)
+  @objc convenience public init(text: Swift.String, body: Swift.String?, firstName: Swift.String?, lastName: Swift.String?, uid: Swift.String?, accountID: Swift.String, isRemote: Swift.Bool = false, proActiveData: LPMessagingSDK.ProactiveNotificationData? = nil)
   @objc convenience public init(message: LPMessagingSDK.Message, isRemote: Swift.Bool = false, proActiveData: LPMessagingSDK.ProactiveNotificationData? = nil)
-  @objc public init(text: Swift.String, user: LPMessagingSDK.LPUser, accountID: Swift.String, isRemote: Swift.Bool = false, proActiveData: LPMessagingSDK.ProactiveNotificationData? = nil)
+  @objc public init(text: Swift.String, body: Swift.String? = nil, user: LPMessagingSDK.LPUser, accountID: Swift.String, isRemote: Swift.Bool = false, proActiveData: LPMessagingSDK.ProactiveNotificationData? = nil)
   @objc required public init?(coder: Foundation.NSCoder)
   @objc public func encode(with coder: Foundation.NSCoder)
   @objc override dynamic public init()
@@ -3381,7 +3385,7 @@ public protocol LPStructuredContentImageDownloader {
   @objc override dynamic public var debugDescription: Swift.String {
     @objc get
   }
-  public init(brandId: Swift.String, lookBackPeriod: Swift.Double? = nil, expirationEpochTime: Swift.Double, agentPid: Swift.String? = nil, backendService: Swift.String? = nil, leCampaignId: Swift.String? = nil, leEngagementId: Swift.String? = nil, externalConsumerId: Swift.String? = nil, transactionId: Swift.String? = nil)
+  public init(brandId: Swift.String, lookBackPeriod: Swift.Double? = nil, expirationEpochTime: Swift.Double, agentPid: Swift.String? = nil, backendService: Swift.String? = nil, leCampaignId: Swift.String? = nil, leEngagementId: Swift.String? = nil, externalConsumerId: Swift.String? = nil, transactionId: Swift.String? = nil, event: [Swift.String : Any]? = nil)
   @objc required public init?(coder: Foundation.NSCoder)
   @objc public func encode(with coder: Foundation.NSCoder)
   @objc override dynamic public init()
