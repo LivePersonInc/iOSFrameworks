@@ -42,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		EV9FyQ30E8PWXxq/+d/gu1bioF4=
+		uraj6+Zbe/2wiB/KarznO9N5BVg=
 		</data>
 		<key>Model.cdm</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/LPMessagingSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		y5xmEyGAUGI0Im3aOXKzxmtRR+w=
+		6euJBi9Knar1iGoVosjrGvOmt7E=
 		</data>
 		<key>Modules/LPMessagingSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/LPMessagingSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		y5xmEyGAUGI0Im3aOXKzxmtRR+w=
+		6euJBi9Knar1iGoVosjrGvOmt7E=
 		</data>
 		<key>Modules/LPMessagingSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -82,7 +82,7 @@
 		</data>
 		<key>Modules/LPMessagingSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		JRDQteiVfv37PetW+In9QBAwtuw=
+		9TQn03SKOz2JYrrZ/Aon0Mfcj7U=
 		</data>
 		<key>Modules/LPMessagingSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>Modules/LPMessagingSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		JRDQteiVfv37PetW+In9QBAwtuw=
+		9TQn03SKOz2JYrrZ/Aon0Mfcj7U=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -311,7 +311,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qDwB1ZeS7xMz3VnVqpNpDGswt+dQJo27zwl68WBve24=
+			d8Fevj+wwbklGOm9e2u8164JFXwyxCvhDqiryYZHkhk=
 			</data>
 		</dict>
 		<key>Modules/LPMessagingSDK.swiftmodule/arm64.swiftdoc</key>
@@ -332,7 +332,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qDwB1ZeS7xMz3VnVqpNpDGswt+dQJo27zwl68WBve24=
+			d8Fevj+wwbklGOm9e2u8164JFXwyxCvhDqiryYZHkhk=
 			</data>
 		</dict>
 		<key>Modules/LPMessagingSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -353,7 +353,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			27KNnWulDEPDjyr3qBsz8R6/jeITo3jyGGDc9cSyJYk=
+			8yhX9XPUV/Al+EjLL7Yi73cnuYOX0szoqRb/Ud3SDfk=
 			</data>
 		</dict>
 		<key>Modules/LPMessagingSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -374,7 +374,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			27KNnWulDEPDjyr3qBsz8R6/jeITo3jyGGDc9cSyJYk=
+			8yhX9XPUV/Al+EjLL7Yi73cnuYOX0szoqRb/Ud3SDfk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
