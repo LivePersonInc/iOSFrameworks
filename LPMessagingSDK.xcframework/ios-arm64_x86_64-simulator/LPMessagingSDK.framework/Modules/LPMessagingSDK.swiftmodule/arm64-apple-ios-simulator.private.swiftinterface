@@ -562,7 +562,6 @@ public enum LPLanguagesKeys : Swift.String, Swift.CaseIterable {
   case conversationEndedByYou
   case cancel
   case confirm
-  case appointmentConfirmButton
   case retry
   case hiMessage
   case sentMessageErrorTitle
@@ -770,16 +769,6 @@ public enum LPLanguagesKeys : Swift.String, Swift.CaseIterable {
   case accessibilityMonthYearPicker
   case accessibilityCalendarSelection
   case accessibilityConfirmation
-  case accessibilityVoiceVideoCallBackButton
-  case accessibilityBrandAvatarImage
-  case accessibilityAgentAvatarImage
-  case accessibilityVoiceVideoCallPipViewMinimized
-  case accessibilityVoiceMessage
-  case accessibilityFileSharingFileTypeDocx
-  case accessibilityFileSharingFileTypePptx
-  case accessibilityFileSharingFileTypeXlsx
-  case accessibilityFileSharingFileTypePdf
-  case accessibilityFileSharingFileTypeUnknown
   public init?(rawValue: Swift.String)
   public typealias AllCases = [LPMessagingSDK.LPLanguagesKeys]
   public typealias RawValue = Swift.String
@@ -2149,8 +2138,6 @@ public enum QuickReplyActionType : Swift.String {
   @objc public var retrieveAssignedAgentFromLastClosedConversation: Swift.Bool
   @objc public var recordingDurationLimit: Swift.Double
   @objc public var enableAudioSharing: Swift.Bool
-  @objc public var recordingButtonTooltipTextColor: UIKit.UIColor
-  @objc public var recordingButtonTooltipBackgroundColor: UIKit.UIColor
   @objc public var enableSpeechRecognition: Swift.Bool
   @objc public var speechRecognitionInputDurationInSeconds: Swift.Double
   @objc public var maxNumberOfSavedAudioFilesOnDisk: Swift.UInt
@@ -2223,8 +2210,7 @@ public enum QuickReplyActionType : Swift.String {
   @objc public var appointmentCellAccessoryLabelTextColor: UIKit.UIColor
   @objc public var appointmentCellSelectedColor: UIKit.UIColor
   @objc public var appointmentConfirmationViewBackgroundColor: UIKit.UIColor
-  @objc @available(*, deprecated, message: "Use `LPLanguagesKeys.appointmentConfirmButton` instead")
-  public var appointmentConfirmButtonTitle: Swift.String
+  @objc public var appointmentConfirmButtonTitle: Swift.String
   @objc public var appointmentConfirmButtonCornerRadius: CoreFoundation.CGFloat
   @objc public var appointmentConfirmButtonBackgroundColor: UIKit.UIColor
   @objc public var appointmentConfirmButtonTitleTextColor: UIKit.UIColor
@@ -2251,7 +2237,7 @@ public enum QuickReplyActionType : Swift.String {
   @objc public var datePickerFooterButtonBackgroundColor: UIKit.UIColor
   @objc public var datePickerFooterButtonFontColor: UIKit.UIColor
   @objc public var datePickerFooterButtonCornerRadius: Swift.Double
-  @objc @available(*, deprecated, message: "Use `LPLanguagesKeys.confirm` instead")
+  @objc @available(*, deprecated, message: "Use `Localization Keys - confirm` instead")
   public var datePickerFooterButtonText: Swift.String
   @objc public var datePickerFooterLabelsFontColor: UIKit.UIColor
   @objc public var datePickerFooterArrowImage: UIKit.UIImage?
@@ -2460,7 +2446,6 @@ public enum QuickReplyActionType : Swift.String {
   @objc public var structuredContentCardBackgroundColor: UIKit.UIColor
   @objc public var structuredContentLoadingImage: UIKit.UIImage?
   @objc public var structuredContentBrokenImage: UIKit.UIImage?
-  @objc public var structuredContentAnnounceEntireMessageContent: Swift.Bool
   @objc public var carouselNavigationButtonsAppearance: LPMessagingSDK.CarouselNavigationButtonsAppearance
   @objc public var carouselNavigationButtonBackgroundColor: UIKit.UIColor
   @objc public var carouselNavigationButtonSize: CoreFoundation.CGFloat
@@ -3149,7 +3134,6 @@ public enum LPColor {
   public static let lpBlack: UIKit.UIColor
   public static let lpWhite: UIKit.UIColor
   public static let lpClear: UIKit.UIColor
-  public static let lpDarkGray: UIKit.UIColor
   public static let lpLightGray: UIKit.UIColor
   public static let lpLightGray2: UIKit.UIColor
   public static let lpBarBlue: UIKit.UIColor
@@ -3539,9 +3523,6 @@ public struct AppointmentSlot : Swift.Encodable {
     get
   }
   public var longitude: Swift.Double {
-    get
-  }
-  public var actionName: Swift.String? {
     get
   }
   @objc override public func encode(with aCoder: Foundation.NSCoder)
@@ -3983,9 +3964,6 @@ public protocol LPStructuredContentLoggerDelegate : AnyObject {
     get
   }
   public var deepLinkUri: Swift.String? {
-    get
-  }
-  public var actionName: Swift.String? {
     get
   }
   @objc override public func encode(with aCoder: Foundation.NSCoder)
