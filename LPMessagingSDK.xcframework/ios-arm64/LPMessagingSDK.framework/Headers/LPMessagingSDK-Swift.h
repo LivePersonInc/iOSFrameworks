@@ -740,10 +740,6 @@ SWIFT_CLASS("_TtC14LPMessagingSDK8LPConfig")
 @property (nonatomic) NSTimeInterval recordingDurationLimit;
 /// Enable or disable audio sharing feature. True is enabled.
 @property (nonatomic) BOOL enableAudioSharing;
-/// Text color for the tooltip displayed on the Audio Sharing button.
-@property (nonatomic, strong) UIColor * _Nonnull recordingButtonTooltipTextColor;
-/// Background color for the tooltip displayed on the Audio Sharing button.
-@property (nonatomic, strong) UIColor * _Nonnull recordingButtonTooltipBackgroundColor;
 /// Enable or disable speech dictation
 @property (nonatomic) BOOL enableSpeechRecognition;
 /// Timer duration of the speech dictation when activated
@@ -905,7 +901,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK8LPConfig")
 /// Default color for confirmation view background
 @property (nonatomic, strong) UIColor * _Nonnull appointmentConfirmationViewBackgroundColor;
 /// Default text for confirmation button
-@property (nonatomic, copy) NSString * _Nonnull appointmentConfirmButtonTitle SWIFT_DEPRECATED_MSG("Use `LPLanguagesKeys.appointmentConfirmButton` instead");
+@property (nonatomic, copy) NSString * _Nonnull appointmentConfirmButtonTitle;
 /// Default radius for confirmation button corner radius
 @property (nonatomic) CGFloat appointmentConfirmButtonCornerRadius;
 /// Default color for confirmation button background
@@ -959,7 +955,7 @@ SWIFT_CLASS("_TtC14LPMessagingSDK8LPConfig")
 /// Default corner radius for DatePicker Footer Buttons
 @property (nonatomic) double datePickerFooterButtonCornerRadius;
 /// Default corner radius for DatePicker Footer Buttons
-@property (nonatomic, copy) NSString * _Nonnull datePickerFooterButtonText SWIFT_DEPRECATED_MSG("Use `LPLanguagesKeys.confirm` instead");
+@property (nonatomic, copy) NSString * _Nonnull datePickerFooterButtonText SWIFT_DEPRECATED_MSG("Use `Localization Keys - confirm` instead");
 /// Default font color for DatePicker Footer Labels
 @property (nonatomic, strong) UIColor * _Nonnull datePickerFooterLabelsFontColor;
 /// Default image for DatePicker Month to Month Arrow (from -> to).
@@ -1400,11 +1396,6 @@ SWIFT_CLASS("_TtC14LPMessagingSDK8LPConfig")
 @property (nonatomic, strong) UIImage * _Nullable structuredContentLoadingImage;
 /// Structured content loading image when images failed to fetched/loaded
 @property (nonatomic, strong) UIImage * _Nullable structuredContentBrokenImage;
-/// Determines whether VoiceOver announces the entire structured content message.
-/// true - VoiceOver announces the full structured content message.
-/// false (default) - VoiceOver only announces <code>structuredContentCellWithNoItemsMessage</code>.
-/// Related LPLanguagesKeys: <code>structuredContentCellWithItemsMessage</code>, <code>structuredContentCellWithNoItemsMessage</code>
-@property (nonatomic) BOOL structuredContentAnnounceEntireMessageContent;
 /// Structured Content navigation button - UInt Enum value of the behavior. Default alwaysHide.
 /// alwaysHide - never show navigation buttons
 /// showOnVoiceOver - show navigation buttons only if accessibility mode is enabled
